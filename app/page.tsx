@@ -10,7 +10,7 @@ import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
-import { Footer } from "@/components/Footer"
+import { Footer } from "@/app/components/Footer"
 
 export default function LandingPage() {
   const [isLoaded, setIsLoaded] = useState(false)

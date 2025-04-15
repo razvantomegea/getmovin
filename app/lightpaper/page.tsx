@@ -10,7 +10,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
 import { useEffect } from "react"
-import { Footer } from "@/components/Footer"
+import { Footer } from "@/app/components/Footer"
 
 export default function LightpaperPage() {
   const sections = [
