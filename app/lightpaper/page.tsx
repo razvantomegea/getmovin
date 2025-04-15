@@ -4,9 +4,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { ArrowLeft, ChevronRight } from "lucide-react"
+import { Menu, X } from "lucide-react"
+import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
+import { useEffect } from "react"
+import { Footer } from "@/components/Footer"
 
 export default function LightpaperPage() {
   const sections = [
@@ -37,9 +41,50 @@ export default function LightpaperPage() {
   }
 
   const scrollToSection = useSmoothScroll()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    // Check if there's a hash in the URL when the page loads
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash
+      if (hash) {
+        // Remove the # from the hash
+        const id = hash.substring(1)
+
+        // Add a small delay to ensure the page is fully loaded
+        setTimeout(() => {
+          const element = document.getElementById(id)
+          if (element) {
+            const headerHeight = document.querySelector("header")?.offsetHeight || 0
+            const elementPosition = element.getBoundingClientRect().top
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            })
+          }
+        }, 100)
+      }
+    }
+  }, [])
+
+  // Add a debug check to verify section IDs
+
+  useEffect(() => {
+    // Debug check to verify all section IDs exist
+    if (process.env.NODE_ENV === "development") {
+      sections.forEach((section) => {
+        const element = document.getElementById(section.id)
+        if (!element) {
+          console.warn(`Section with ID "${section.id}" not found in the DOM`)
+        }
+      })
+    }
+  }, [sections])
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col overflow-x-hidden">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <motion.div
@@ -55,7 +100,9 @@ export default function LightpaperPage() {
               </div>
             </Link>
           </motion.div>
-          <nav className="hidden md:flex gap-6">
+
+          {/* Desktop Navigation */}
+          <nav className="hidden [@media(min-width:1100px)]:flex gap-6">
             {sections.map((section, i) => (
               <motion.div
                 key={section.id}
@@ -74,21 +121,59 @@ export default function LightpaperPage() {
               </motion.div>
             ))}
           </nav>
-          <motion.div
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.6, type: "spring", stiffness: 100, damping: 20 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <Link href="/">
-              <Button size="sm" className="gap-1.5">
-                <ArrowLeft className="h-4 w-4" /> Back to Home
+
+          <div className="flex items-center gap-4">
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.6, type: "spring", stiffness: 100, damping: 20 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Link href="/">
+                <Button size="sm" className="gap-1.5">
+                  <ArrowLeft className="h-4 w-4" /> Back to Home
+                </Button>
+              </Link>
+            </motion.div>
+
+            {/* Mobile Menu Button */}
+            <div className="[@media(min-width:1100px)]:hidden">
+              <Button variant="ghost" size="sm" className="p-1" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
-            </Link>
-          </motion.div>
+            </div>
+          </div>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <motion.div
+            className="[@media(min-width:1100px)]:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="container py-4 px-4 space-y-4 bg-background border-t">
+              {sections.map((section) => (
+                <div key={section.id} className="py-2">
+                  <Link
+                    href={`/lightpaper/#${section.id}`}
+                    className="block text-base font-medium transition-colors hover:text-[#0095ff]"
+                    onClick={(e) => {
+                      scrollToSection(e, section.id)
+                      setMobileMenuOpen(false)
+                    }}
+                  >
+                    {section.title}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </header>
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-[#f0f9ff] dark:bg-[#0095ff]/5">
           <div className="container px-4 md:px-6">
             <motion.div
@@ -101,7 +186,7 @@ export default function LightpaperPage() {
                 Official Documentation
               </div>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Movin Lightpaper</h1>
-              <p className="max-w-[700px] text-muted-foreground md:text-xl">
+              <p className="max-w-[1100px] text-muted-foreground md:text-xl">
                 The comprehensive guide to our move-to-earn ecosystem on Ethereum
               </p>
             </motion.div>
@@ -641,103 +726,7 @@ export default function LightpaperPage() {
           </div>
         </section>
       </main>
-      <footer className="w-full border-t bg-background py-6 md:py-12">
-        <div className="container flex flex-col items-center justify-between gap-4 md:flex-row px-4 md:px-6">
-          <div className="flex items-center gap-2">
-            <Image src="/images/logo.png" alt="Movin Logo" width={32} height={32} className="rounded-md" />
-            <span className="text-xl font-bold text-[#0095ff]">Movin</span>
-          </div>
-          <nav className="flex gap-4 sm:gap-6">
-            <Link href="/#features" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
-              Features
-            </Link>
-            <Link href="/#testimonials" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
-              Testimonials
-            </Link>
-            <Link href="/#pricing" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
-              Pricing
-            </Link>
-            <Link href="/#download" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
-              Download
-            </Link>
-            <Link href="/lightpaper" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
-              Lightpaper
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5 text-[#0095ff]"
-              >
-                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-              </svg>
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link href="https://discord.com" target="_blank" rel="noopener noreferrer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5 text-[#0095ff]"
-              >
-                <circle cx="9" cy="12" r="1" />
-                <circle cx="15" cy="12" r="1" />
-                <path d="M7.5 7.5c3.5-1 5.5-1 9 0" />
-                <path d="M7.5 16.5c3.5 1 5.5 1 9 0" />
-                <path d="M15.5 17c0 1 1.5 3 2 3 1.5 0 2.833-1.667 3.5-3 .667-1.667.5-5.833-1.5-11.5-1.457-1.015-3-1.34-4.5-1.5l-1 2.5" />
-                <path d="M8.5 17c0 1-1.356 3-1.832 3-1.429 0-2.698-1.667-3.333-3-.635-1.667-.48-5.833 1.428-11.5C6.151 4.485 7.545 4.16 9 4l1 2.5" />
-              </svg>
-              <span className="sr-only">Discord</span>
-            </Link>
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5 text-[#0095ff]"
-              >
-                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-                <path d="M9 18c-4.51 2-5-2-7-2" />
-              </svg>
-              <span className="sr-only">GitHub</span>
-            </Link>
-          </div>
-        </div>
-        <div className="container mt-6 flex flex-col items-center justify-between gap-4 border-t pt-6 md:flex-row px-4 md:px-6">
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            © 2023 Movin. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            <Link href="/terms" className="text-sm text-muted-foreground underline-offset-4 hover:underline">
-              Terms of Service
-            </Link>
-            <Link href="/privacy" className="text-sm text-muted-foreground underline-offset-4 hover:underline">
-              Privacy Policy
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

@@ -6,12 +6,15 @@ import { Download, ChevronRight, Star, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useState, useEffect } from "react"
+import { Menu, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
+import { Footer } from "@/components/Footer"
 
 export default function LandingPage() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     setIsLoaded(true)
@@ -63,7 +66,7 @@ export default function LandingPage() {
   const titleChars = "Earn while you burn".split("")
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col overflow-x-hidden">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <motion.div
@@ -84,6 +87,8 @@ export default function LandingPage() {
               Movin
             </motion.span>
           </motion.div>
+
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6">
             {["Features", "Testimonials", "Pricing", "Download", "Lightpaper"].map((item, i) => (
               <motion.div
@@ -109,14 +114,16 @@ export default function LandingPage() {
               </motion.div>
             ))}
           </nav>
+
           <div className="flex items-center gap-4">
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.5, type: "spring", stiffness: 100, damping: 20 }}
               whileHover={{ scale: 1.05 }}
+              className="hidden md:block"
             >
-              <Button variant="outline" size="sm" className="hidden md:flex">
+              <Button variant="outline" size="sm">
                 Connect Wallet
               </Button>
             </motion.div>
@@ -130,10 +137,60 @@ export default function LandingPage() {
                 Get Started
               </Button>
             </motion.div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <Button variant="ghost" size="sm" className="p-1" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {mobileMenuOpen && (
+          <motion.div
+            className="md:hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="container py-4 px-4 space-y-4 bg-background border-t">
+              {["Features", "Testimonials", "Pricing", "Download", "Lightpaper"].map((item) => (
+                <div key={item} className="py-2">
+                  {item === "Lightpaper" ? (
+                    <Link
+                      href="/lightpaper"
+                      className="block text-base font-medium transition-colors hover:text-[#0095ff]"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ) : (
+                    <Link
+                      href={`#${item.toLowerCase()}`}
+                      className="block text-base font-medium transition-colors hover:text-[#0095ff]"
+                      onClick={(e) => {
+                        scrollToSection(e, item.toLowerCase())
+                        setMobileMenuOpen(false)
+                      }}
+                    >
+                      {item}
+                    </Link>
+                  )}
+                </div>
+              ))}
+              <div className="pt-2 border-t">
+                <Button variant="outline" size="sm" className="w-full mb-2">
+                  Connect Wallet
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </header>
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
@@ -260,7 +317,7 @@ export default function LandingPage() {
                   Features
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">How Movin Works</h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+                <p className="mx-auto max-w-[1100px] text-muted-foreground md:text-xl/relaxed">
                   Our blockchain-powered fitness app rewards your movement with real cryptocurrency
                 </p>
               </div>
@@ -362,17 +419,17 @@ export default function LandingPage() {
                   Testimonials
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">What Our Users Say</h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+                <p className="mx-auto max-w-[1100px] text-muted-foreground md:text-xl/relaxed">
                   Join thousands of satisfied users who are earning while staying fit
                 </p>
               </div>
             </div>
 
-            <div className="mt-12 flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-8">
+            <div className="mt-12 flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-8 px-4 -mx-4 md:px-0 md:mx-0">
               {[1, 2, 3, 4].map((i) => (
                 <motion.div
                   key={i}
-                  className="snap-center shrink-0 scroll-mx-4 first:pl-4 last:pr-4 w-full max-w-md rounded-xl border bg-background p-6 shadow-sm"
+                  className="snap-center shrink-0 scroll-mx-4 first:pl-4 last:pr-4 w-[85%] md:w-full max-w-md rounded-xl border bg-background p-6 shadow-sm"
                   initial={{ x: 100 * i, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.2 * i, duration: 0.5, type: "spring", stiffness: 100, damping: 20 }}
@@ -420,7 +477,7 @@ export default function LandingPage() {
                   Pricing
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Choose Your Plan</h2>
-                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+                <p className="mx-auto max-w-[1100px] text-muted-foreground md:text-xl/relaxed">
                   Unlock premium features to maximize your earnings and fitness journey
                 </p>
               </div>
@@ -668,7 +725,11 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="download" className="w-full py-12 md:py-24 lg:py-32 bg-[#f0f9ff] dark:bg-[#0095ff]/5">
+        <section
+          id="download"
+          className="w-full py-12 md:py-24 lg:py-32 bg-[#f0f9ff] dark:bg-[#0095ff]/5"
+          ref={downloadRef}
+        >
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <motion.div
@@ -695,12 +756,7 @@ export default function LandingPage() {
                       size="lg"
                       className="w-full gap-1.5 min-[400px]:w-auto border-[#0095ff] text-[#0095ff]"
                     >
-                      <Image
-                        src="/placeholder.svg?height=24&width=24&text=GP"
-                        alt="Google Play"
-                        width={24}
-                        height={24}
-                      />
+                      <Download className="h-5 w-5" />
                       Google Play
                     </Button>
                   </Link>
@@ -710,7 +766,7 @@ export default function LandingPage() {
                       size="lg"
                       className="w-full gap-1.5 min-[400px]:w-auto border-[#0095ff] text-[#0095ff]"
                     >
-                      <Image src="/placeholder.svg?height=24&width=24&text=AS" alt="App Store" width={24} height={24} />
+                      <Download className="h-5 w-5" />
                       App Store
                     </Button>
                   </Link>
@@ -744,94 +800,7 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-      <footer className="w-full border-t bg-background py-6 md:py-12">
-        <motion.div
-          className="container flex flex-col items-center justify-between gap-4 md:flex-row px-4 md:px-6"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        >
-          <div className="flex items-center gap-2">
-            <Image src="/images/logo.png" alt="Movin Logo" width={32} height={32} className="rounded-md" />
-            <span className="text-xl font-bold text-[#0095ff]">Movin</span>
-          </div>
-          <nav className="flex gap-4 sm:gap-6">
-            <Link
-              href="#features"
-              className="text-sm font-medium transition-colors hover:text-[#0095ff]"
-              onClick={(e) => scrollToSection(e, "features")}
-            >
-              Features
-            </Link>
-            <Link
-              href="#testimonials"
-              className="text-sm font-medium transition-colors hover:text-[#0095ff]"
-              onClick={(e) => scrollToSection(e, "testimonials")}
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="#pricing"
-              className="text-sm font-medium transition-colors hover:text-[#0095ff]"
-              onClick={(e) => scrollToSection(e, "pricing")}
-            >
-              Pricing
-            </Link>
-            <Link
-              href="#download"
-              className="text-sm font-medium transition-colors hover:text-[#0095ff]"
-              onClick={(e) => scrollToSection(e, "download")}
-            >
-              Download
-            </Link>
-            <Link href="/lightpaper" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
-              Lightpaper
-            </Link>
-          </nav>
-          <div className="flex items-center gap-4">
-            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5 text-[#0095ff]"
-              >
-                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-              </svg>
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link href="https://discord.com" target="_blank" rel="noopener noreferrer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-5 w-5 text-[#0095ff]"
-              >
-                <circle cx="9" cy="12" r="1" />
-                <circle cx="15" cy="12" r="1" />
-                <path d="M7.5 7.5c3.5-1 5.5-1 9 0" />
-                <path d="M7.5 16.5c3.5 1 5.5 1 9 0" />
-                <path d="M15.5 17c0 1 1.5 3 2 3 1.5 0 2.833-1.667 3.5-3 .667-1.667.5-5.833-1.5-11.5-1.457-1.015-3-1.34-4.5-1.5l-1 2.5" />
-                <path d="M8.5 17c0 1-1.356 3-1.832 3-1.429 0-2.698-1.667-3.333-3" />
-              </svg>
-              <span className="sr-only">Discord</span>
-            </Link>
-          </div>
-        </motion.div>
-      </footer>
+      <Footer onSectionClick={scrollToSection} animate={true} />
     </div>
   )
 }
