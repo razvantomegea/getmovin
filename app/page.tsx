@@ -288,16 +288,12 @@ export default function LandingPage() {
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 >
                   <Image
-                    src="/placeholder.svg?height=484&width=234"
+                    src="/images/header-img.png"
                     alt="App Interface"
                     width={234}
                     height={484}
                     className="h-full w-full object-cover"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                    <div className="text-lg font-bold">Today's Earnings</div>
-                    <div className="text-3xl font-bold">0.25 ETH</div>
-                  </div>
                 </motion.div>
               </motion.div>
             </div>
@@ -788,7 +784,7 @@ export default function LandingPage() {
               >
                 <div className="relative h-[500px] w-[250px] overflow-hidden rounded-[40px] border-[8px] border-muted bg-background shadow-xl">
                   <Image
-                    src="/placeholder.svg?height=484&width=234&text=Stats+Screen"
+                    src="/images/download-img.png"
                     alt="App Stats Screen"
                     width={234}
                     height={484}

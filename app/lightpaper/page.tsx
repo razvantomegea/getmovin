@@ -620,28 +620,13 @@ export default function LightpaperPage() {
               <motion.div variants={item} className="grid gap-8 md:grid-cols-2">
                 {[
                   {
-                    name: "Alex Johnson",
+                    name: "Razvan Tomegea",
                     role: "Founder & CEO",
-                    bio: "Former fitness app developer with 10+ years of experience in the health tech industry.",
-                  },
-                  {
-                    name: "Sarah Chen",
-                    role: "CTO",
-                    bio: "Blockchain expert with previous experience at major cryptocurrency exchanges.",
-                  },
-                  {
-                    name: "Michael Rodriguez",
-                    role: "Head of Product",
-                    bio: "Product leader with a background in gamification and user engagement.",
-                  },
-                  {
-                    name: "Emma Williams",
-                    role: "Chief Marketing Officer",
-                    bio: "Marketing strategist specializing in community building and growth hacking.",
+                    bio: "With 10+ years experience in software engineering and fitness industry",
                   },
                 ].map((member, i) => (
                   <div key={i} className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
-                    <div className="h-24 w-24 rounded-full bg-[#e6f4ff]"></div>
+                    <Image src="/images/avatar.png" alt={member.name} width={96} height={96} className="h-24 w-24 rounded-full object-cover" />
                     <div className="text-center">
                       <h3 className="text-xl font-bold">{member.name}</h3>
                       <p className="text-[#0095ff]">{member.role}</p>
@@ -716,8 +701,8 @@ export default function LightpaperPage() {
                     <p className="text-muted-foreground">
                       Have questions or partnership inquiries? Reach out to our team directly.
                     </p>
-                    <Link href="mailto:contact@movin.app" className="text-[#0095ff] hover:underline">
-                      contact@movin.app
+                    <Link href="mailto:contact@getmovin.ai" className="text-[#0095ff] hover:underline">
+                      contact@getmovin.ai
                     </Link>
                   </div>
                 </div>
