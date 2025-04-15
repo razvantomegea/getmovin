@@ -224,7 +224,7 @@ export default function LandingPage() {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.9, type: "spring", stiffness: 100, damping: 20 }}
                   >
-                    Transform your daily movement into rewards. Our move-to-earn app built on Ethereum rewards you with
+                    Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with
                     crypto tokens for every step you take.
                   </motion.p>
                 </div>
@@ -344,7 +344,7 @@ export default function LandingPage() {
                 },
                 {
                   title: "Earn Tokens",
-                  description: "Convert your physical activity into MVN tokens on the Ethereum blockchain",
+                  description: "Convert your physical activity into MVN tokens on the Base Layer-2 chain of Ethereum",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

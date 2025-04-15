@@ -187,7 +187,7 @@ export default function LightpaperPage() {
               </div>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Movin Lightpaper</h1>
               <p className="max-w-[1100px] text-muted-foreground md:text-xl">
-                The comprehensive guide to our move-to-earn ecosystem on Ethereum
+                The comprehensive guide to our move-to-earn ecosystem on Base
               </p>
             </motion.div>
           </div>
@@ -210,7 +210,7 @@ export default function LightpaperPage() {
               </motion.div>
               <motion.div variants={item} className="space-y-4">
                 <p className="text-muted-foreground md:text-lg">
-                  Movin is a revolutionary move-to-earn application built on the Ethereum blockchain that rewards users
+                  Movin is a revolutionary move-to-earn application built on the Base Layer-2 chain of Ethereum that rewards users
                   for their physical activity. Our mission is to promote healthier lifestyles by incentivizing regular
                   exercise through cryptocurrency rewards.
                 </p>
@@ -568,7 +568,7 @@ export default function LightpaperPage() {
                   <h3 className="text-xl font-bold">Q1 2023: Launch</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>Initial app release with core step tracking functionality</li>
-                    <li>MVN token launch on Ethereum</li>
+                    <li>MVN token launch on the Base Layer-2 chain of Ethereum</li>
                     <li>Basic staking mechanisms implementation</li>
                   </ul>
                 </div>
