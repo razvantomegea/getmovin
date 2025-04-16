@@ -639,9 +639,21 @@ export default function LightpaperPage() {
                     role: "Founder & CEO",
                     bio: "With 10+ years experience in software engineering and fitness industry",
                   },
+                  {
+                    name: "AI",
+                    role: "Core Developer",
+                    bio: "Advanced AI system that helps with development, user assistance, and data analysis to optimize the Movin experience.",
+                    avatar: "/images/robot.png"
+                  },
                 ].map((member, i) => (
                   <div key={i} className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
-                    <Image src="/images/avatar.png" alt={member.name} width={96} height={96} className="h-24 w-24 rounded-full object-cover" />
+                    <Image 
+                      src={member.avatar || "/images/avatar.png"} 
+                      alt={member.name} 
+                      width={96} 
+                      height={96} 
+                      className="h-24 w-24 rounded-full object-cover" 
+                    />
                     <div className="text-center">
                       <h3 className="text-xl font-bold">{member.name}</h3>
                       <p className="text-[#0095ff]">{member.role}</p>
