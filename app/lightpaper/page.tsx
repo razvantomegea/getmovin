@@ -3,13 +3,17 @@
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowLeft, ChevronRight } from "lucide-react"
-import { Menu, X } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { 
+  faChevronRight, 
+  faArrowLeft, 
+  faBars, 
+  faXmark 
+} from "@fortawesome/free-solid-svg-icons"
 
 import { Button } from "@/components/ui/button"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
-import { useEffect } from "react"
 import { Footer } from "@/app/components/Footer"
 
 export default function LightpaperPage() {
@@ -131,7 +135,7 @@ export default function LightpaperPage() {
             >
               <Link href="/">
                 <Button size="sm" className="gap-1.5">
-                  <ArrowLeft className="h-4 w-4" /> Back to Home
+                  <FontAwesomeIcon icon={faArrowLeft} className="h-4 w-4" /> Back to Home
                 </Button>
               </Link>
             </motion.div>
@@ -139,7 +143,7 @@ export default function LightpaperPage() {
             {/* Mobile Menu Button */}
             <div className="[@media(min-width:1100px)]:hidden">
               <Button variant="ghost" size="sm" className="p-1" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {mobileMenuOpen ? <FontAwesomeIcon icon={faXmark} className="h-6 w-6" /> : <FontAwesomeIcon icon={faBars} className="h-6 w-6" />}
               </Button>
             </div>
           </div>
@@ -291,17 +295,16 @@ export default function LightpaperPage() {
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
-                    <h3 className="text-xl font-bold">MET-Based Rewards</h3>
+                    <h3 className="text-xl font-bold">Staking Rewards</h3>
                     <p className="text-muted-foreground">
-                      Earn additional tokens based on your metabolic activity intensity, encouraging more vigorous
-                      exercise.
+                      Stake and lock your MVN tokens for up to 24 months to earn 24% APY.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Premium Integration</h3>
                     <p className="text-muted-foreground">
                       Premium users can import activity data from Apple HealthKit and Google Fit for a seamless
-                      experience.
+                      experience and earn MVN tokens on their METs.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
@@ -318,20 +321,24 @@ export default function LightpaperPage() {
                   </p>
                   <ul className="space-y-2 text-muted-foreground md:text-lg">
                     <li className="flex items-start gap-2">
-                      <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                       <span>Enhanced rewards and gamification systems</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                       <span>Expanded ecosystem integrations</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                       <span>Advanced fitness tracking analytics</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                       <span>Personalized fitness recommendations</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <span>AI based calorie tracking</span>
                     </li>
                   </ul>
                 </div>
@@ -372,23 +379,23 @@ export default function LightpaperPage() {
                     <p className="text-muted-foreground">/forever</p>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>Basic step tracking</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>Earn MVN tokens for activity</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>Staking options up to 12 months</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>Referral program (1% rewards)</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
                         <span>Contains advertisements</span>
                       </li>
                     </ul>
@@ -408,36 +415,40 @@ export default function LightpaperPage() {
                     </div>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>All features in the Free plan</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span><strong>MET tracking</strong> and advanced fitness metrics</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>
                           <strong>Ad-free</strong> experience
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>Import activity from Apple Health & Google Fit</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>
                           Exclusive 24-month staking with <strong>24% APY</strong>
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>Access to maps and route tracking</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>Friend sync for joint exercises</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <span>AI based calorie tracking</span>
                       </li>
                     </ul>
                   </div>
@@ -610,6 +621,13 @@ export default function LightpaperPage() {
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>Community challenges with special rewards</li>
                     <li>Achievement badges and milestone rewards</li>
+                  </ul>
+                </div>
+                <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
+                  <h3 className="text-xl font-bold">Q3 2026: AI Integration</h3>
+                  <ul className="mt-2 space-y-1 text-muted-foreground">
+                    <li>AI based calorie tracking</li>
+                    <li>AI based personalized fitness recommendations</li>
                   </ul>
                 </div>
               </motion.div>

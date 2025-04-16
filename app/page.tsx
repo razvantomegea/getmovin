@@ -2,13 +2,23 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Download, ChevronRight, Star, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faRunning, faCoins, faUsersRectangle } from "@fortawesome/free-solid-svg-icons"
+import { 
+  faRunning, 
+  faCoins, 
+  faUsersRectangle, 
+  faStar, 
+  faCheck, 
+  faTimes, 
+  faDownload,
+  faArrowRight,
+  faChevronRight,
+  faBars,
+  faXmark
+} from "@fortawesome/free-solid-svg-icons"
 
 import { Button } from "@/components/ui/button"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
@@ -143,7 +153,7 @@ export default function LandingPage() {
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <Button variant="ghost" size="sm" className="p-1" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                {mobileMenuOpen ? <FontAwesomeIcon icon={faXmark} className="h-6 w-6" /> : <FontAwesomeIcon icon={faBars} className="h-6 w-6" />}
               </Button>
             </div>
           </div>
@@ -238,7 +248,7 @@ export default function LandingPage() {
                 >
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button size="lg" className="gap-1.5 bg-[#0095ff] hover:bg-[#0080e0]">
-                      Start Earning <ChevronRight className="h-4 w-4" />
+                      Start Earning <FontAwesomeIcon icon={faChevronRight} className="h-4 w-4" />
                     </Button>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -251,7 +261,7 @@ export default function LandingPage() {
                         scrollToSection(e as any, "features")
                       }}
                     >
-                      Learn More <ArrowRight className="h-4 w-4" />
+                      Learn More <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
                     </Button>
                   </motion.div>
                 </motion.div>
@@ -269,7 +279,7 @@ export default function LandingPage() {
                         animate={{ scale: 1 }}
                         transition={{ delay: 1.2 + i * 0.1, type: "spring", stiffness: 300, damping: 10 }}
                       >
-                        <Star className="h-4 w-4 fill-[#0095ff] text-[#0095ff]" />
+                        <FontAwesomeIcon icon={faStar} className="h-4 w-4 text-[#0095ff] fill-[#0095ff]" />
                       </motion.div>
                     ))}
                   </div>
@@ -414,12 +424,12 @@ export default function LandingPage() {
                     </div>
                     <div className="ml-auto flex items-center gap-0.5">
                       {[...Array(5)].map((_, j) => (
-                        <Star key={j} className="h-4 w-4 fill-[#0095ff] text-[#0095ff]" />
+                        <FontAwesomeIcon key={j} icon={faStar} className="h-4 w-4 fill-[#0095ff] text-[#0095ff]" />
                       ))}
                     </div>
                   </div>
                   <p className="mt-4 text-muted-foreground">
-                    "I've been using Movin for 3 months and have earned over 2 ETH just by maintaining my regular
+                    "I've been using Movin for 3 months and have earned over 1000 MVN tokens just by maintaining my regular
                     running routine. The app is intuitive and the rewards are real!"
                   </p>
                 </motion.div>
@@ -467,89 +477,23 @@ export default function LandingPage() {
                 </div>
                 <ul className="mb-8 space-y-3 text-left">
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>Basic step tracking</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>Earn MVN tokens for activity</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>Staking up to 12 months</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>Referral program (1% rewards)</span>
                   </li>
                   <li className="flex items-start gap-2 text-muted-foreground">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5"
-                    >
-                      <line x1="18" y1="6" x2="6" y2="18"></line>
-                      <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
+                    <FontAwesomeIcon icon={faTimes} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
                     <span>Contains ads</span>
                   </li>
                 </ul>
@@ -578,127 +522,40 @@ export default function LandingPage() {
                 </div>
                 <ul className="mb-8 space-y-3 text-left">
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>All Free features</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span><strong>MET tracking</strong> and advanced fitness metrics</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>
                       <strong>Ad-free</strong> experience
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>Import from Apple Health & Google Fit</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>
                       <strong>24% APY</strong> staking for 2 years
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>Access to maps & route tracking</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>Friend sync for joint exercises</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <span>AI based calorie tracking</span>
                   </li>
                 </ul>
                 <Button className="mt-auto w-full bg-[#0095ff] hover:bg-[#0080e0]">Upgrade Now</Button>
@@ -738,7 +595,7 @@ export default function LandingPage() {
                       size="lg"
                       className="w-full gap-1.5 min-[400px]:w-auto border-[#0095ff] text-[#0095ff]"
                     >
-                      <Download className="h-5 w-5" />
+                      <FontAwesomeIcon icon={faDownload} className="h-5 w-5" />
                       Google Play
                     </Button>
                   </Link>
@@ -748,14 +605,14 @@ export default function LandingPage() {
                       size="lg"
                       className="w-full gap-1.5 min-[400px]:w-auto border-[#0095ff] text-[#0095ff]"
                     >
-                      <Download className="h-5 w-5" />
+                      <FontAwesomeIcon icon={faDownload} className="h-5 w-5" />
                       App Store
                     </Button>
                   </Link>
                 </div>
                 <div className="flex items-center gap-4 text-sm">
                   <div className="flex items-center gap-1">
-                    <Download className="h-4 w-4 text-[#0095ff]" />
+                    <FontAwesomeIcon icon={faDownload} className="h-4 w-4 text-[#0095ff]" />
                     <span className="font-medium">100K+</span>
                   </div>
                   <div className="text-muted-foreground">Downloads worldwide</div>
