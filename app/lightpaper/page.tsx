@@ -312,23 +312,26 @@ export default function LightpaperPage() {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold">Coming Soon</h3>
+                  <h3 className="text-xl font-bold">Additional Features</h3>
+                  <p className="text-muted-foreground md:text-lg">
+                    Our comprehensive roadmap (see Roadmap section) outlines the planned release of additional features including:
+                  </p>
                   <ul className="space-y-2 text-muted-foreground md:text-lg">
                     <li className="flex items-start gap-2">
                       <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                      <span>Location and route tracking with interactive maps</span>
+                      <span>Enhanced rewards and gamification systems</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                      <span>Friend sync for joint exercises and shared rewards</span>
+                      <span>Expanded ecosystem integrations</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                      <span>Community challenges with special rewards</span>
+                      <span>Advanced fitness tracking analytics</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                      <span>Social feed to share achievements and rewards</span>
+                      <span>Personalized fitness recommendations</span>
                     </li>
                   </ul>
                 </div>
@@ -565,36 +568,43 @@ export default function LightpaperPage() {
                 className="relative space-y-8 pl-8 before:absolute before:left-3 before:top-0 before:h-full before:w-[2px] before:bg-[#0095ff]/20"
               >
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
-                  <h3 className="text-xl font-bold">Q1 2023: Launch</h3>
+                  <h3 className="text-xl font-bold">Q1-Q2 2025: Launch</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
-                    <li>Initial app release with core step tracking functionality</li>
+                  <li>Initial app release with core step tracking functionality</li>
                     <li>MVN token launch on the Base Layer-2 chain of Ethereum</li>
+                    <li>Step tracking and MET rewards implementation</li>
                     <li>Basic staking mechanisms implementation</li>
-                  </ul>
-                </div>
-                <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
-                  <h3 className="text-xl font-bold">Q2 2023: Enhancement</h3>
-                  <ul className="mt-2 space-y-1 text-muted-foreground">
-                    <li>MET-based rewards implementation</li>
                     <li>Premium user features including HealthKit and Google Fit integration</li>
                     <li>Referral program launch</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
-                  <h3 className="text-xl font-bold">Q3-Q4 2023: Expansion</h3>
+                  <h3 className="text-xl font-bold">Q3 2025: Advanced Social Features</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
-                    <li>Location and route tracking with interactive maps</li>
-                    <li>Friend sync for joint exercises</li>
-                    <li>Community challenges implementation</li>
+                    <li>Social feed for sharing achievements</li>
+                    <li>Enhanced social interactions and activity sharing</li>
+                    <li>User achievements and milestone tracking</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
-                  <h3 className="text-xl font-bold">2024: Social & Ecosystem</h3>
+                  <h3 className="text-xl font-bold">Q4 2025: Location Features</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
-                    <li>Social feed for sharing achievements</li>
-                    <li>Expanded token utility within the ecosystem</li>
-                    <li>Partnerships with fitness brands and services</li>
-                    <li>Advanced gamification elements</li>
+                    <li>Location and route tracking with interactive maps</li>
+                    <li>Custom route creation and sharing</li>
+                  </ul>
+                </div>
+                <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
+                  <h3 className="text-xl font-bold">Q1 2026: Community Engagement</h3>
+                  <ul className="mt-2 space-y-1 text-muted-foreground">
+                    <li>Friend sync for joint exercises and shared rewards</li>
+                    <li>Group activity tracking and leaderboards</li>
+                  </ul>
+                </div>
+                <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
+                  <h3 className="text-xl font-bold">Q2 2026: Gamified Experience</h3>
+                  <ul className="mt-2 space-y-1 text-muted-foreground">
+                    <li>Community challenges with special rewards</li>
+                    <li>Achievement badges and milestone rewards</li>
                   </ul>
                 </div>
               </motion.div>

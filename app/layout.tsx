@@ -5,7 +5,25 @@ export const metadata: Metadata = {
   title: 'Movin',
   description: 'Earn while you burn',
   icons: {
-    icon: '/favicon.png',
+    icon: [
+      { url: '/favicon/favicon.ico' },
+      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/favicon/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'manifest',
+        url: '/favicon/site.webmanifest',
+      },
+      {
+        rel: 'mask-icon',
+        url: '/favicon/safari-pinned-tab.svg',
+        color: '#0095ff',
+      },
+    ],
   },
 }
 
@@ -16,6 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="msapplication-TileColor" content="#0095ff" />
+        <meta name="theme-color" content="#ffffff" />
+      </head>
       <body>{children}</body>
     </html>
   )
