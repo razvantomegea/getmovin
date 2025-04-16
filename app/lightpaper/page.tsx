@@ -351,7 +351,7 @@ export default function LightpaperPage() {
             >
               <motion.div variants={item} className="space-y-4">
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                  03.5
+                  04
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Subscription Plans</h2>
               </motion.div>
@@ -369,10 +369,11 @@ export default function LightpaperPage() {
                       <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-xs text-[#0095ff]">Basic</div>
                     </div>
                     <div className="text-2xl font-bold">$0</div>
+                    <p className="text-muted-foreground">/forever</p>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span>Basic step and MET tracking</span>
+                        <span>Basic step tracking</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -409,6 +410,10 @@ export default function LightpaperPage() {
                       <li className="flex items-start gap-2">
                         <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>All features in the Free plan</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <span><strong>MET tracking</strong> and advanced fitness metrics</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <ChevronRight className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -461,7 +466,7 @@ export default function LightpaperPage() {
             >
               <motion.div variants={item} className="space-y-4">
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                  04
+                  05
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Tokenomics</h2>
               </motion.div>
@@ -559,7 +564,7 @@ export default function LightpaperPage() {
             >
               <motion.div variants={item} className="space-y-4">
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                  05
+                  06
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Roadmap</h2>
               </motion.div>
@@ -623,7 +628,7 @@ export default function LightpaperPage() {
             >
               <motion.div variants={item} className="space-y-4">
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                  06
+                  07
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Team</h2>
               </motion.div>
@@ -660,7 +665,7 @@ export default function LightpaperPage() {
             >
               <motion.div variants={item} className="space-y-4">
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                  07
+                  08
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get Involved</h2>
               </motion.div>

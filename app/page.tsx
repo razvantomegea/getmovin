@@ -512,7 +512,7 @@ export default function LandingPage() {
                     >
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span>Basic step and MET tracking</span>
+                    <span>Basic step tracking</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
@@ -624,6 +624,23 @@ export default function LandingPage() {
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                     <span>All Free features</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    >
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <span><strong>MET tracking</strong> and advanced fitness metrics</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <svg
