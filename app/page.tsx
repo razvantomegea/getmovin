@@ -7,6 +7,8 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faRunning, faCoins, faUsersRectangle } from "@fortawesome/free-solid-svg-icons"
 
 import { Button } from "@/components/ui/button"
 import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
@@ -322,71 +324,38 @@ export default function LandingPage() {
               {[
                 {
                   title: "Move & Track",
-                  description: "Our app tracks your steps, runs, and workouts using advanced GPS and motion sensors",
+                  description: "Our app tracks your steps and METs using your phone's sensors and importing workouts from Apple Health and Google Fit",
                   icon: (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-8 w-8 text-[#0095ff]"
-                    >
-                      <path d="M19 6v5a2 2 0 0 1-2 2H9l-3 3v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2Z" />
-                      <path d="M8 9h8" />
-                      <path d="M8 13h6" />
-                    </svg>
+                    <FontAwesomeIcon 
+                      icon={faRunning} 
+                      className="h-8 w-8 text-[#0095ff]" 
+                    />
                   ),
                 },
                 {
                   title: "Earn Tokens",
-                  description: "Convert your physical activity into MVN tokens on the Base Layer-2 chain of Ethereum",
+                  description: "Convert your physical activity into MVN tokens on the Base Layer-2 chain of Ethereum and stake your tokens to earn even more",
                   icon: (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-8 w-8 text-[#0095ff]"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M12 6v6l4 2" />
-                    </svg>
+                    <FontAwesomeIcon 
+                      icon={faCoins} 
+                      className="h-8 w-8 text-[#0095ff]" 
+                    />
                   ),
                 },
                 {
-                  title: "Use & Trade",
-                  description: "Spend your tokens on in-app rewards or trade them on supported exchanges",
+                  title: "Share & Compete",
+                  description: "Share your progress with friends, compete, and join a team with a partner to earn even more tokens",
                   icon: (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-8 w-8 text-[#0095ff]"
-                    >
-                      <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z" />
-                    </svg>
+                    <FontAwesomeIcon 
+                      icon={faUsersRectangle} 
+                      className="h-8 w-8 text-[#0095ff]" 
+                    />
                   ),
                 },
               ].map((feature, i) => (
                 <motion.div
                   key={feature.title}
-                  className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm"
+                  className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm min-h-[280px]"
                   initial={{ x: i % 2 === 0 ? -100 : 100, opacity: 0 }}
                   animate={featuresInView ? { x: 0, opacity: 1 } : { x: i % 2 === 0 ? -100 : 100, opacity: 0 }}
                   transition={{ delay: i * 0.2, duration: 0.5, type: "spring", stiffness: 100, damping: 20 }}
