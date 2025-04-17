@@ -145,7 +145,7 @@ export default function LandingPage() {
               transition={{ delay: 0.6, type: "spring", stiffness: 100, damping: 20 }}
               whileHover={{ scale: 1.05 }}
             >
-              <Link href="https://app.getmovin.ai">
+              <Link href="https://movinchain.web.app">
                 <Button size="sm" className="bg-[#0095ff] hover:bg-[#0080e0]">
                   Get Started
                 </Button>
@@ -560,7 +560,7 @@ export default function LandingPage() {
                     <span>AI based calorie tracking</span>
                   </li>
                 </ul>
-                <Link href="https://app.getmovin.ai">
+                <Link href="https://movinchain.web.app">
                   <Button className="mt-auto w-full bg-[#0095ff] hover:bg-[#0080e0]">Upgrade Now</Button>
                 </Link>
               </motion.div>
@@ -586,7 +586,7 @@ export default function LandingPage() {
                   <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                     Download Now
                   </div>
-                  <Link href="https://app.getmovin.ai">
+                  <Link href="https://movinchain.web.app">
                     <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Start Earning Today</h2>
                   </Link>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
