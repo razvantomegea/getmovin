@@ -592,6 +592,7 @@ export default function LightpaperPage() {
                     <li>Basic staking mechanisms implementation</li>
                     <li>Premium user features including HealthKit and Google Fit integration</li>
                     <li>Referral program launch</li>
+                    <li>Exchange listing</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
@@ -628,6 +629,20 @@ export default function LightpaperPage() {
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>AI based calorie tracking</li>
                     <li>AI based personalized fitness recommendations</li>
+                  </ul>
+                </div>
+                <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
+                  <h3 className="text-xl font-bold">Q4 2026: Borrowing</h3>
+                  <ul className="mt-2 space-y-1 text-muted-foreground">
+                    <li>Ability to borrow MVN tokens from the protocol</li>
+                  </ul>
+                </div>
+                <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
+                  <h3 className="text-xl font-bold">2027: Partnerships</h3>
+                  <ul className="mt-2 space-y-1 text-muted-foreground">
+                    <li>Partnerships with fitness brands and organizations</li>
+                    <li>MVN token listing on more exchanges</li>
+                    <li>More features and integrations</li>
                   </ul>
                 </div>
               </motion.div>
