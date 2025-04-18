@@ -37,6 +37,7 @@ export default function RootLayout({
       <head>
         <meta name="msapplication-TileColor" content="#0095ff" />
         <meta name="theme-color" content="#ffffff" />
+        <meta name="google-adsense-account" content="ca-pub-2046001366406434" />
       </head>
       <body>{children}</body>
     </html>
