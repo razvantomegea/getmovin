@@ -663,13 +663,13 @@ export default function LightpaperPage() {
                 {[
                   {
                     name: "Razvan Tomegea",
-                    role: "Founder & CEO",
-                    bio: "With 10+ years experience in software engineering and fitness industry",
+                    role: "Founder & Core Developer",
+                    bio: "Blockchain developer and entrepreneur based in Romania. Passionate about fitness and technology, with 11 years of experience.",
                     linkedin: "https://www.linkedin.com/in/razvantomegea/"
                   },
                   {
                     name: "AI",
-                    role: "Core Developer",
+                    role: "Core Developer Assistant",
                     bio: "Advanced AI system that helps with development, user assistance, and data analysis to optimize the Movin experience.",
                     avatar: "/images/robot.png",
                   },
