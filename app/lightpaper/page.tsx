@@ -747,11 +747,11 @@ export default function LightpaperPage() {
                       Join our vibrant community on social media platforms to stay updated and connect with other users.
                     </p>
                     <div className="flex gap-4">
-                      <Link href="https://x.com/lifestylemanrt" className="text-[#0095ff] hover:underline">
-                        X
-                      </Link>
                       <Link href="https://t.me/getmovinai" className="text-[#0095ff] hover:underline">
                         Telegram
+                      </Link>
+                      <Link href="https://discord.gg/qv934WsH" className="text-[#0095ff] hover:underline">
+                        Discord
                       </Link>
                     </div>
                   </div>

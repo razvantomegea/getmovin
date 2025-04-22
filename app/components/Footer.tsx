@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faXTwitter, faGithub, faTelegram } from "@fortawesome/free-brands-svg-icons"
+import {  faGithub, faTelegram, faDiscord } from "@fortawesome/free-brands-svg-icons"
 
 type FooterProps = {
   onSectionClick?: (e: React.MouseEvent<HTMLAnchorElement>, section: string) => void
@@ -52,10 +52,6 @@ export function Footer({ onSectionClick, animate = false }: FooterProps) {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link href="https://x.com/lifestylemanrt" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faXTwitter} className="h-5 w-5 text-[#0095ff]" />
-            <span className="sr-only">X</span>
-          </Link>
           <Link href="https://github.com/razvantomegea" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faGithub} className="h-5 w-5 text-[#0095ff]" />
             <span className="sr-only">GitHub</span>
@@ -63,6 +59,10 @@ export function Footer({ onSectionClick, animate = false }: FooterProps) {
           <Link href="https://t.me/getmovinai" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faTelegram} className="h-5 w-5 text-[#0095ff]" />
             <span className="sr-only">Telegram</span>
+          </Link>
+          <Link href="https://discord.gg/qv934WsH" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faDiscord} className="h-5 w-5 text-[#0095ff]" />
+            <span className="sr-only">Discord</span>
           </Link>
         </div>
       </Container>
