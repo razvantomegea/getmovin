@@ -102,7 +102,7 @@ export default function LandingPage() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6">
-            {["Features", "Testimonials", "Pricing", "Download", "Lightpaper"].map((item, i) => (
+            {["Features", "Pricing", "Download", "Lightpaper"].map((item, i) => (
               <motion.div
                 key={item}
                 initial={{ x: -50, opacity: 0 }}
@@ -171,7 +171,7 @@ export default function LandingPage() {
             transition={{ duration: 0.3 }}
           >
             <div className="container py-4 px-4 space-y-4 bg-background border-t">
-              {["Features", "Testimonials", "Pricing", "Download", "Lightpaper"].map((item) => (
+              {["Features", "Pricing", "Download", "Lightpaper"].map((item) => (
                 <div key={item} className="py-2">
                   {item === "Lightpaper" ? (
                     <Link
@@ -249,9 +249,11 @@ export default function LandingPage() {
                   transition={{ delay: 1.0, type: "spring", stiffness: 100, damping: 20 }}
                 >
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button size="lg" className="gap-1.5 bg-[#0095ff] hover:bg-[#0080e0]">
-                      Start Earning <FontAwesomeIcon icon={faChevronRight} className="h-4 w-4" />
-                    </Button>
+                    <Link href="https://app.getmovin.ai">
+                      <Button size="lg" className="gap-1.5 bg-[#0095ff] hover:bg-[#0080e0]">
+                        Start Earning <FontAwesomeIcon icon={faChevronRight} className="h-4 w-4" />
+                      </Button>
+                    </Link>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button
@@ -388,7 +390,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
+        {/* <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -438,7 +440,7 @@ export default function LandingPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section id="pricing" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">

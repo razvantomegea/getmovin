@@ -584,37 +584,31 @@ export default function LightpaperPage() {
                 className="relative space-y-8 pl-8 before:absolute before:left-3 before:top-0 before:h-full before:w-[2px] before:bg-[#0095ff]/20"
               >
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
-                  <h3 className="text-xl font-bold">Q1-Q2 2025: Launch</h3>
+                  <h3 className="text-xl font-bold">Q1-Q2 2025: MVP Launch</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
-                  <li>Initial app release with core step tracking functionality</li>
-                    <li>MVN token launch on the Base Layer-2 chain of Ethereum</li>
-                    <li>Step tracking and MET rewards implementation</li>
+                    <li>MVN contracts launch on the Base Layer-2 chain of Ethereum</li>
+                    <li>Core step and METs tracking functionality</li>
                     <li>Basic staking mechanisms implementation</li>
                     <li>Premium user features including HealthKit and Google Fit integration</li>
-                    <li>Referral program launch</li>
-                    <li>Exchange listing</li>
+                    <li>Referral program</li>
+                    <li>App launch on Apple Store and Google Play</li>
+                    <li>Public token listing on Uniswap, Gate.io, and Base</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
-                  <h3 className="text-xl font-bold">Q3 2025: Advanced Social Features</h3>
+                  <h3 className="text-xl font-bold">Q3-Q4 2025: Social Feed Features</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>Social feed for sharing achievements</li>
                     <li>Enhanced social interactions and activity sharing</li>
-                    <li>User achievements and milestone tracking</li>
-                  </ul>
-                </div>
-                <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
-                  <h3 className="text-xl font-bold">Q4 2025: Location Features</h3>
-                  <ul className="mt-2 space-y-1 text-muted-foreground">
-                    <li>Location and route tracking with interactive maps</li>
                     <li>Custom route creation and sharing</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
-                  <h3 className="text-xl font-bold">Q1 2026: Community Engagement</h3>
+                  <h3 className="text-xl font-bold">Q1 2026: Advanced Geolocation Features</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>Friend sync for joint exercises and shared rewards</li>
                     <li>Group activity tracking and leaderboards</li>
+                    <li>Location and route tracking with interactive maps</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
@@ -671,12 +665,13 @@ export default function LightpaperPage() {
                     name: "Razvan Tomegea",
                     role: "Founder & CEO",
                     bio: "With 10+ years experience in software engineering and fitness industry",
+                    linkedin: "https://www.linkedin.com/in/razvantomegea/"
                   },
                   {
                     name: "AI",
                     role: "Core Developer",
                     bio: "Advanced AI system that helps with development, user assistance, and data analysis to optimize the Movin experience.",
-                    avatar: "/images/robot.png"
+                    avatar: "/images/robot.png",
                   },
                 ].map((member, i) => (
                   <div key={i} className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
@@ -691,6 +686,13 @@ export default function LightpaperPage() {
                       <h3 className="text-xl font-bold">{member.name}</h3>
                       <p className="text-[#0095ff]">{member.role}</p>
                       <p className="mt-2 text-muted-foreground">{member.bio}</p>
+                      {member.linkedin && (
+                        <div className="mt-3">
+                          <Link href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#0095ff] hover:underline">
+                            LinkedIn Profile
+                          </Link>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -745,13 +747,10 @@ export default function LightpaperPage() {
                       Join our vibrant community on social media platforms to stay updated and connect with other users.
                     </p>
                     <div className="flex gap-4">
-                      <Link href="#" className="text-[#0095ff] hover:underline">
-                        Twitter
+                      <Link href="https://x.com/lifestylemanrt" className="text-[#0095ff] hover:underline">
+                        X
                       </Link>
-                      <Link href="#" className="text-[#0095ff] hover:underline">
-                        Discord
-                      </Link>
-                      <Link href="#" className="text-[#0095ff] hover:underline">
+                      <Link href="https://t.me/getmovinai" className="text-[#0095ff] hover:underline">
                         Telegram
                       </Link>
                     </div>
