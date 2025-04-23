@@ -131,17 +131,6 @@ export default function LandingPage() {
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.5, type: "spring", stiffness: 100, damping: 20 }}
-              whileHover={{ scale: 1.05 }}
-              className="hidden md:block"
-            >
-              <Button variant="outline" size="sm">
-                Connect Wallet
-              </Button>
-            </motion.div>
-            <motion.div
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.6, type: "spring", stiffness: 100, damping: 20 }}
               whileHover={{ scale: 1.05 }}
             >
@@ -195,11 +184,6 @@ export default function LandingPage() {
                   )}
                 </div>
               ))}
-              <div className="pt-2 border-t">
-                <Button variant="outline" size="sm" className="w-full mb-2">
-                  Connect Wallet
-                </Button>
-              </div>
             </div>
           </motion.div>
         )}
