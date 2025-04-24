@@ -739,7 +739,7 @@ export default function LightpaperPage() {
                       Acquire MVN tokens and participate in our staking program to earn passive rewards while supporting
                       the ecosystem.
                     </p>
-                    <Button className="bg-[#0095ff] hover:bg-[#0080e0]">Learn About Staking</Button>
+                    <Button onClick={() => window.open("https://app.uniswap.org/positions/v4/base/40814", "_blank")} className="bg-[#0095ff] hover:bg-[#0080e0]">Get MVN tokens</Button>
                   </div>
                   <div className="space-y-4 rounded-lg border p-6 shadow-sm">
                     <h3 className="text-xl font-bold">Community</h3>

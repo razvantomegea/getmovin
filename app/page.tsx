@@ -253,7 +253,7 @@ export default function LandingPage() {
                     </Button>
                   </motion.div>
                 </motion.div>
-                <motion.div
+                {/* <motion.div
                   className="flex items-center gap-4 text-sm"
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
@@ -274,7 +274,7 @@ export default function LandingPage() {
                   <div className="text-muted-foreground">
                     <span className="font-medium">4.9/5</span> from over 2,000 reviews
                   </div>
-                </motion.div>
+                </motion.div> */}
               </div>
               <motion.div
                 className="flex items-center justify-center"
@@ -602,13 +602,13 @@ export default function LandingPage() {
                     </Button>
                   </Link>
                 </div>
-                <div className="flex items-center gap-4 text-sm">
+                {/* <div className="flex items-center gap-4 text-sm">
                   <div className="flex items-center gap-1">
                     <FontAwesomeIcon icon={faDownload} className="h-4 w-4 text-[#0095ff]" />
                     <span className="font-medium">100K+</span>
                   </div>
                   <div className="text-muted-foreground">Downloads worldwide</div>
-                </div>
+                </div> */}
               </motion.div>
               <motion.div
                 className="flex items-center justify-center"
