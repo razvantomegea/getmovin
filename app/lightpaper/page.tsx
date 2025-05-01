@@ -375,7 +375,7 @@ export default function LightpaperPage() {
                       <h3 className="text-xl font-bold">Free Plan</h3>
                       <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-xs text-[#0095ff]">Basic</div>
                     </div>
-                    <div className="text-2xl font-bold">$0</div>
+                    <div className="text-2xl font-bold">0 MVN</div>
                     <p className="text-muted-foreground">/forever</p>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
@@ -395,6 +395,10 @@ export default function LightpaperPage() {
                         <span>Referral program (1% rewards)</span>
                       </li>
                       <li className="flex items-start gap-2">
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <span>Import activity from Apple Health & Google Fit</span>
+                      </li>
+                      <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
                         <span>Contains advertisements</span>
                       </li>
@@ -410,13 +414,13 @@ export default function LightpaperPage() {
                       <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-xs text-[#0095ff]">Advanced</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold">$2.99/month</div>
-                      <div className="text-sm text-muted-foreground">or $10.99/year (save 69%)</div>
+                      <div className="text-2xl font-bold">100 MVN/month</div>
+                      <div className="text-sm text-muted-foreground">or 1000 MVN/year (save 16%)</div>
                     </div>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span>All features in the Free plan</span>
+                        <span>Everything in Free plan</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -427,10 +431,6 @@ export default function LightpaperPage() {
                         <span>
                           <strong>Ad-free</strong> experience
                         </span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span>Import activity from Apple Health & Google Fit</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />

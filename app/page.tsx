@@ -460,7 +460,7 @@ export default function LandingPage() {
                   <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff]">Basic</div>
                 </div>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold">$0</span>
+                  <span className="text-4xl font-bold">0 MVN</span>
                   <span className="text-muted-foreground">/forever</span>
                 </div>
                 <ul className="mb-8 space-y-3 text-left">
@@ -479,6 +479,10 @@ export default function LandingPage() {
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                     <span>Referral program (1% rewards)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <span>Import from Apple Health & Google Fit</span>
                   </li>
                   <li className="flex items-start gap-2 text-muted-foreground">
                     <FontAwesomeIcon icon={faTimes} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
@@ -504,14 +508,14 @@ export default function LandingPage() {
                   <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff]">Advanced</div>
                 </div>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold">$2.99</span>
+                  <span className="text-4xl font-bold">100 MVN</span>
                   <span className="text-muted-foreground">/month</span>
-                  <p className="text-sm text-muted-foreground">or $10.99/year (save 69%)</p>
+                  <p className="text-sm text-muted-foreground">or 1000 MVN/year (save 16%)</p>
                 </div>
                 <ul className="mb-8 space-y-3 text-left">
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>All Free features</span>
+                    <span>Everything in Free plan</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -522,10 +526,6 @@ export default function LandingPage() {
                     <span>
                       <strong>Ad-free</strong> experience
                     </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>Import from Apple Health & Google Fit</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
