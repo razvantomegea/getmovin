@@ -535,15 +535,15 @@ export default function LandingPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>Access to maps & route tracking</span>
+                    <span>Access to maps & route tracking (soon)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>Friend sync for joint exercises</span>
+                    <span>Friend sync for joint exercises (soon)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>AI based calorie tracking</span>
+                    <span>AI based calorie tracking (soon)</span>
                   </li>
                 </ul>
                 <Link href="https://app.getmovin.ai">
