@@ -342,7 +342,7 @@ export default function LandingPage() {
                 },
                 {
                   title: "Share & Compete",
-                  description: "Share your progress with friends, compete, and join a team with a partner to earn even more tokens",
+                  description: "Share your progress with friends, compete, and join a team with a partner to earn even more tokens. Both you and your referrals get 1 MVN when they join.",
                   icon: (
                     <FontAwesomeIcon 
                       icon={faUsersRectangle} 
@@ -478,7 +478,7 @@ export default function LandingPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>Referral program (1% rewards)</span>
+                    <span>Referral program (1 MVN bonus for both parties + 1% rewards)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />

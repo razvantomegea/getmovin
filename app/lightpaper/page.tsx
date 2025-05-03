@@ -310,7 +310,7 @@ export default function LightpaperPage() {
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Referral Program</h3>
                     <p className="text-muted-foreground">
-                      Earn 1% of referred users' activity rewards automatically when they claim. Referrers can have multiple referees, but each referee can only have one referrer.
+                      Both referrer and referee receive 1 MVN token upon successful registration. Additionally, referrers earn 1% of referred users' activity rewards automatically when they claim. Referrers can have multiple referees, but each referee can only have one referrer.
                     </p>
                   </div>
                 </div>
@@ -392,7 +392,7 @@ export default function LightpaperPage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span>Referral program (1% rewards)</span>
+                        <span>Referral program (1 MVN bonus for both parties + 1% rewards)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -691,6 +691,11 @@ export default function LightpaperPage() {
                           <td className="py-2">REFERRAL_BONUS_PERCENT</td>
                           <td className="py-2">1%</td>
                           <td className="py-2">Bonus for referrers</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">REFERRAL_REGISTRATION_BONUS</td>
+                          <td className="py-2">1 MVN</td>
+                          <td className="py-2">Bonus for both referrer and referee upon registration</td>
                         </tr>
                         <tr>
                           <td className="py-2">HALVING_DECREASE_PERCENT</td>
