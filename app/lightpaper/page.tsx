@@ -23,6 +23,7 @@ export default function LightpaperPage() {
     { id: "features", title: "Features & Benefits" },
     { id: "pricing", title: "Pricing" },
     { id: "tokenomics", title: "Tokenomics" },
+    { id: "technical", title: "Smart Contract Architecture" },
     { id: "roadmap", title: "Roadmap" },
     { id: "team", title: "Team" },
     { id: "contact", title: "Get Involved" },
@@ -291,26 +292,25 @@ export default function LightpaperPage() {
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Step Tracking & Rewards</h3>
                     <p className="text-muted-foreground">
-                      Earn MVN tokens for your daily steps with fair thresholds and limits to ensure genuine activity.
+                      Earn MVN tokens for your daily steps with a minimum threshold of 10,000 steps and a maximum of 30,000 steps per day. Rate limited to 300 steps per minute to ensure fair play.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Staking Rewards</h3>
                     <p className="text-muted-foreground">
-                      Stake and lock your MVN tokens for up to 24 months to earn 24% APY.
+                      Stake and lock your MVN tokens for up to 24 months to earn 24% APY. Lock periods of 1, 3, 6, 12, and 24 months are available, each with corresponding multipliers.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Premium Integration</h3>
                     <p className="text-muted-foreground">
-                      Premium users can import activity data from Apple HealthKit and Google Fit for a seamless
-                      experience and earn MVN tokens on their METs.
+                      Premium users can track METs (Metabolic Equivalent of Task) with a minimum of 10 METs and maximum of 500 METs daily, rate limited to 5 METs per minute, for additional rewards.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Referral Program</h3>
                     <p className="text-muted-foreground">
-                      Earn 1% of referred users' activity rewards, creating a network effect for growth.
+                      Earn 1% of referred users' activity rewards automatically when they claim. Referrers can have multiple referees, but each referee can only have one referrer.
                     </p>
                   </div>
                 </div>
@@ -380,7 +380,7 @@ export default function LightpaperPage() {
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span>Basic step tracking</span>
+                        <span>Basic step tracking (10,000-30,000 steps daily)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -424,7 +424,7 @@ export default function LightpaperPage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span><strong>MET tracking</strong> and advanced fitness metrics</span>
+                        <span><strong>MET tracking</strong> (10-500 METs daily)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -495,9 +495,7 @@ export default function LightpaperPage() {
                     </div>
                   </div>
                   <p className="text-muted-foreground md:text-lg">
-                    The MVN token is the core of our ecosystem. It can be burned, paused, and minted as needed to
-                    maintain ecosystem health. The token contract includes sophisticated staking mechanisms with various
-                    lock periods.
+                    The MVN token is built on the ERC20 standard with pausable functionality for emergency situations. It supports minting and burning operations, and includes a token locking mechanism allowing users to lock their tokens for a specified duration.
                   </p>
                 </div>
                 <div className="space-y-4">
@@ -510,11 +508,13 @@ export default function LightpaperPage() {
                     </p>
                     <p>
                       <span className="font-semibold">MET Rewards:</span> Earn MVN tokens from metabolic activity with a
-                      threshold of 10 METs, maximum of 5 METs per minute, and 500 METs per day.
+                      threshold of 10 METs, maximum of 5 METs per minute, and 500 METs per day. MET tracking is exclusive to premium users.
                     </p>
                     <p>
-                      <span className="font-semibold">Reward Expiry:</span> Unclaimed rewards expire after 30 days of
-                      inactivity and are burned, encouraging regular engagement and maintaining token scarcity.
+                      <span className="font-semibold">Reward Rate Decrease:</span> Base reward rates decrease by 0.1% daily, compounded, to maintain long-term sustainability of the token economy.
+                    </p>
+                    <p>
+                      <span className="font-semibold">Unstaking Fee:</span> 1% burn fee applies when unstaking tokens before the lock period expires.
                     </p>
                   </div>
                 </div>
@@ -525,6 +525,7 @@ export default function LightpaperPage() {
                       <thead>
                         <tr className="border-b">
                           <th className="py-2 text-left">Lock Period</th>
+                          <th className="py-2 text-left">Multiplier</th>
                           <th className="py-2 text-left">Availability</th>
                           <th className="py-2 text-left">APY</th>
                         </tr>
@@ -532,32 +533,199 @@ export default function LightpaperPage() {
                       <tbody>
                         <tr className="border-b">
                           <td className="py-2">1 Month</td>
+                          <td className="py-2">1x</td>
                           <td className="py-2">All Users</td>
                           <td className="py-2">4%</td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">3 Months</td>
+                          <td className="py-2">3x</td>
                           <td className="py-2">All Users</td>
                           <td className="py-2">8%</td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">6 Months</td>
+                          <td className="py-2">6x</td>
                           <td className="py-2">All Users</td>
                           <td className="py-2">12%</td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">12 Months</td>
+                          <td className="py-2">12x</td>
                           <td className="py-2">All Users</td>
                           <td className="py-2">18%</td>
                         </tr>
                         <tr>
                           <td className="py-2">24 Months</td>
+                          <td className="py-2">24x</td>
                           <td className="py-2">Premium Users Only</td>
                           <td className="py-2 font-bold text-[#0095ff]">24%</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
+                  <p className="text-muted-foreground md:text-lg">
+                    Staking rewards are calculated based on: stake amount × APR × time staked. Users can have multiple stakes with different lock periods and can claim rewards individually or all at once.
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold">Technical Implementation</h3>
+                  <p className="text-muted-foreground md:text-lg">
+                    MOVINEarn smart contract implements a comprehensive system with security features including ReentrancyGuard protection, pausable functionality, and Ownable2Step for secure ownership management. The contract employs the UUPS pattern for upgradeability with proper storage management.
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="technical" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <motion.div
+              className="grid gap-6 lg:grid-cols-[1fr_2fr] lg:gap-12"
+              variants={container}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
+              <motion.div variants={item} className="space-y-4">
+                <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
+                  06
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Smart Contract Architecture</h2>
+              </motion.div>
+              <motion.div variants={item} className="space-y-8">
+                <p className="text-muted-foreground md:text-lg">
+                  The MOVINEarn smart contract implements a sophisticated token-based rewards system with multiple integrated components working together to create a secure and sustainable ecosystem.
+                </p>
+                
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold">Core Components</h3>
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div className="space-y-4 rounded-lg border p-4 shadow-sm">
+                      <h3 className="font-bold">Token System</h3>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <span>ERC20 standard with pausable functionality</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <span>Supports minting and burning operations</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <span>Token locking mechanism for specified durations</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="space-y-4 rounded-lg border p-4 shadow-sm">
+                      <h3 className="font-bold">Activity System</h3>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li className="flex items-start gap-2">
+                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <span>Rate-limited step and MET tracking</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <span>Daily reset based on activity timestamp</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <span>Decreasing reward rates to maintain longevity</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold">Technical Parameters</h3>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse">
+                      <thead>
+                        <tr className="border-b">
+                          <th className="py-2 text-left">Parameter</th>
+                          <th className="py-2 text-left">Value</th>
+                          <th className="py-2 text-left">Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b">
+                          <td className="py-2">STEPS_THRESHOLD</td>
+                          <td className="py-2">10,000</td>
+                          <td className="py-2">Minimum steps required for rewards</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">METS_THRESHOLD</td>
+                          <td className="py-2">10</td>
+                          <td className="py-2">Minimum METs required for rewards</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">MAX_DAILY_STEPS</td>
+                          <td className="py-2">30,000</td>
+                          <td className="py-2">Maximum daily steps for rewards</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">MAX_DAILY_METS</td>
+                          <td className="py-2">500</td>
+                          <td className="py-2">Maximum daily METs for rewards</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">MAX_STEPS_PER_MINUTE</td>
+                          <td className="py-2">300</td>
+                          <td className="py-2">Rate limit for step tracking</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">MAX_METS_PER_MINUTE</td>
+                          <td className="py-2">5</td>
+                          <td className="py-2">Rate limit for MET tracking</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">UNSTAKE_BURN_FEES_PERCENT</td>
+                          <td className="py-2">1%</td>
+                          <td className="py-2">Fee applied when unstaking</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">REFERRAL_BONUS_PERCENT</td>
+                          <td className="py-2">1%</td>
+                          <td className="py-2">Bonus for referrers</td>
+                        </tr>
+                        <tr>
+                          <td className="py-2">HALVING_DECREASE_PERCENT</td>
+                          <td className="py-2">0.1%</td>
+                          <td className="py-2">Daily reward rate decrease</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold">Security Features</h3>
+                  <ul className="space-y-2 text-muted-foreground md:text-lg">
+                    <li className="flex items-start gap-2">
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <span>ReentrancyGuard protection on critical functions</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <span>Pausable functionality for emergency situations</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <span>Ownable2Step for secure ownership management</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <span>Input validation and rate limiting</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <span>UUPS pattern for secure contract upgradeability</span>
+                    </li>
+                  </ul>
                 </div>
               </motion.div>
             </motion.div>
@@ -575,7 +743,7 @@ export default function LightpaperPage() {
             >
               <motion.div variants={item} className="space-y-4">
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                  06
+                  07
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Roadmap</h2>
               </motion.div>
@@ -655,7 +823,7 @@ export default function LightpaperPage() {
             >
               <motion.div variants={item} className="space-y-4">
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                  07
+                  08
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Team</h2>
               </motion.div>
@@ -712,7 +880,7 @@ export default function LightpaperPage() {
             >
               <motion.div variants={item} className="space-y-4">
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                  08
+                  09
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get Involved</h2>
               </motion.div>
