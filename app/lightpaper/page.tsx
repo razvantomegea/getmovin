@@ -514,7 +514,13 @@ export default function LightpaperPage() {
                       <span className="font-semibold">Reward Rate Decrease:</span> Base reward rates decrease by 0.1% daily, compounded, to maintain long-term sustainability of the token economy.
                     </p>
                     <p>
-                      <span className="font-semibold">Unstaking Fee:</span> 1% burn fee applies when unstaking tokens before the lock period expires.
+                      <span className="font-semibold">Rewards Expiration:</span> Activity rewards reset at midnight (00:00 am) daily. Any unclaimed activity rewards from the previous day are lost. Additionally, staking rewards expire after 24 hours since the last rewards were claimed.
+                    </p>
+                    <p>
+                      <span className="font-semibold">Unstaking Fee:</span> A 1% burn fee applies to all unstaking operations. This mechanism helps maintain token scarcity and rewards long-term holders.
+                    </p>
+                    <p>
+                      <span className="font-semibold">Subscription Burning:</span> Premium subscription payments (100 MVN monthly or 1000 MVN yearly) are burned, permanently removing these tokens from circulation to create deflationary pressure and maintain the token's value over time.
                     </p>
                   </div>
                 </div>
@@ -567,6 +573,9 @@ export default function LightpaperPage() {
                   <p className="text-muted-foreground md:text-lg">
                     Staking rewards are calculated based on: stake amount × APR × time staked. Users can have multiple stakes with different lock periods and can claim rewards individually or all at once.
                   </p>
+                  <p className="text-muted-foreground md:text-lg">
+                    After a stake's lock period ends, users can choose to restake their tokens into a new lock period without paying the 1% unstaking fee. This encourages long-term participation while providing flexibility to adjust staking strategy when lock periods expire.
+                  </p>
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold">Technical Implementation</h3>
@@ -616,6 +625,10 @@ export default function LightpaperPage() {
                         <li className="flex items-start gap-2">
                           <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                           <span>Token locking mechanism for specified durations</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <span>Deflationary design with multiple burning mechanisms: unstaking fee (1%), premium subscription payments</span>
                         </li>
                       </ul>
                     </div>
@@ -697,10 +710,20 @@ export default function LightpaperPage() {
                           <td className="py-2">1 MVN</td>
                           <td className="py-2">Bonus for both referrer and referee upon registration</td>
                         </tr>
-                        <tr>
+                        <tr className="border-b">
                           <td className="py-2">HALVING_DECREASE_PERCENT</td>
                           <td className="py-2">0.1%</td>
                           <td className="py-2">Daily reward rate decrease</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">ACTIVITY_REWARDS_EXPIRATION</td>
+                          <td className="py-2">00:00 am</td>
+                          <td className="py-2">Daily reset time for activity rewards</td>
+                        </tr>
+                        <tr>
+                          <td className="py-2">STAKING_REWARDS_EXPIRATION</td>
+                          <td className="py-2">24 hours</td>
+                          <td className="py-2">Time after last claim when staking rewards expire</td>
                         </tr>
                       </tbody>
                     </table>
