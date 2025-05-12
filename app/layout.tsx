@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: 'Movin',
@@ -40,6 +41,7 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-2046001366406434" />
       </head>
       <body>{children}</body>
+      <Analytics />
     </html>
   )
 }
