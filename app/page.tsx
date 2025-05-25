@@ -554,6 +554,7 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* New Browser App Section */}
         <section
           id="download"
           className="w-full py-12 md:py-24 lg:py-32 bg-[#f0f9ff] dark:bg-[#0095ff]/5"
@@ -570,45 +571,39 @@ export default function LandingPage() {
               >
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                    Download Now
+                    Try Web App
                   </div>
                   <Link href="https://app.getmovin.ai">
                     <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Start Earning Today</h2>
                   </Link>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                    Download our app and transform your daily movement into cryptocurrency rewards. Available on iOS and
-                    Android.
+                    Experience Movin in your browser and transform your daily movement into cryptocurrency rewards. Mobile apps coming soon!
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link href="https://play.google.com" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://app.getmovin.ai" target="_blank" rel="noopener noreferrer">
                     <Button
-                      variant="outline"
                       size="lg"
-                      className="w-full gap-1.5 min-[400px]:w-auto border-[#0095ff] text-[#0095ff]"
+                      className="w-full gap-1.5 min-[400px]:w-auto bg-[#0095ff] hover:bg-[#0080e0]"
                     >
-                      <FontAwesomeIcon icon={faDownload} className="h-5 w-5" />
-                      Google Play
+                      <FontAwesomeIcon icon={faArrowRight} className="h-5 w-5" />
+                      Try Web App
                     </Button>
                   </Link>
-                  <Link href="https://apps.apple.com" target="_blank" rel="noopener noreferrer">
+                  <Link href="#features" onClick={(e) => scrollToSection(e as any, "features")}>
                     <Button
                       variant="outline"
                       size="lg"
                       className="w-full gap-1.5 min-[400px]:w-auto border-[#0095ff] text-[#0095ff]"
                     >
-                      <FontAwesomeIcon icon={faDownload} className="h-5 w-5" />
-                      App Store
+                      Learn More
                     </Button>
                   </Link>
                 </div>
-                {/* <div className="flex items-center gap-4 text-sm">
-                  <div className="flex items-center gap-1">
-                    <FontAwesomeIcon icon={faDownload} className="h-4 w-4 text-[#0095ff]" />
-                    <span className="font-medium">100K+</span>
-                  </div>
-                  <div className="text-muted-foreground">Downloads worldwide</div>
-                </div> */}
+                <div className="flex items-center gap-2 text-sm">
+                  <FontAwesomeIcon icon={faCheck} className="h-4 w-4 text-[#0095ff]" />
+                  <span className="text-muted-foreground">Works on any device with a modern browser</span>
+                </div>
               </motion.div>
               <motion.div
                 className="flex items-center justify-center"

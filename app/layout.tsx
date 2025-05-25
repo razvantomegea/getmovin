@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Analytics } from "@vercel/analytics/next"
+import TermlyCMP from './components/TermlyCMP'
 
 export const metadata: Metadata = {
   title: 'Movin',
@@ -28,6 +29,8 @@ export const metadata: Metadata = {
   },
 }
 
+const WEBSITE_UUID = '40d3e98e-5ac6-4a84-a24e-ac4cda0fa623'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,6 +45,7 @@ export default function RootLayout({
       </head>
       <body>{children}</body>
       <Analytics />
+      <TermlyCMP websiteUUID={WEBSITE_UUID} />
     </html>
   )
 }
