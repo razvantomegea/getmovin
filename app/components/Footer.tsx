@@ -72,7 +72,7 @@ export function Footer({ onSectionClick, animate = false }: FooterProps) {
           © 2025 Movin. All rights reserved.
         </p>
         <div className="flex gap-4">
-          <Link href="https://app.termly.io/policy-viewer/policy.html?policyUUID=32f320cc-d83f-43ec-b602-dfb98321a82c" className="text-sm text-muted-foreground underline-offset-4 hover:underline" className="text-sm text-muted-foreground underline-offset-4 hover:underline">
+          <Link href="https://app.termly.io/policy-viewer/policy.html?policyUUID=09b69da0-1641-4776-bbbd-32060e7b8bc6" className="text-sm text-muted-foreground underline-offset-4 hover:underline">
             Terms of Service
           </Link>
           <Link href="https://app.termly.io/policy-viewer/policy.html?policyUUID=32f320cc-d83f-43ec-b602-dfb98321a82c" className="text-sm text-muted-foreground underline-offset-4 hover:underline">
