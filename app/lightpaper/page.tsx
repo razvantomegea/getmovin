@@ -919,6 +919,51 @@ export default function LightpaperPage() {
                 </p>
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-4 rounded-lg border p-6 shadow-sm">
+                    <h3 className="text-xl font-bold">Use Web App</h3>
+                    <p className="text-muted-foreground">
+                      The simplest way to join is to use our web app and start earning MVN tokens through your daily
+                      activity.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                    <Link href="https://app.getmovin.ai">
+                      <Button className="bg-[#0095ff] hover:bg-[#0080e0]">Try Web App</Button>
+                    </Link>
+                    </div>
+                  </div>
+                  <div className="space-y-4 rounded-lg border p-6 shadow-sm">
+                    <h3 className="text-xl font-bold">Invest & Stake</h3>
+                    <p className="text-muted-foreground">
+                      Acquire MVN tokens and participate in our staking program to earn passive rewards while supporting
+                      the ecosystem.
+                    </p>
+                    <Button onClick={() => window.open("https://app.uniswap.org/positions/v4/base/40814", "_blank")} className="bg-[#0095ff] hover:bg-[#0080e0]">Get MVN tokens</Button>
+                  </div>
+                  <div className="space-y-4 rounded-lg border p-6 shadow-sm">
+                    <h3 className="text-xl font-bold">Community</h3>
+                    <p className="text-muted-foreground">
+                      Join our vibrant community on social media platforms to stay updated and connect with other users.
+                    </p>
+                    <div className="flex gap-4">
+                      <Link href="https://t.me/getmovinai" className="text-[#0095ff] hover:underline">
+                        Telegram
+                      </Link>
+                      <Link href="https://discord.gg/qv934WsH" className="text-[#0095ff] hover:underline">
+                        Discord
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="space-y-4 rounded-lg border p-6 shadow-sm">
+                    <h3 className="text-xl font-bold">Contact Us</h3>
+                    <p className="text-muted-foreground">
+                      Have questions or partnership inquiries? Reach out to our team directly.
+                    </p>
+                    <Link href="mailto:contact@getmovin.ai" className="text-[#0095ff] hover:underline">
+                      contact@getmovin.ai
+                    </Link>
+                  </div>
+                </div>
+                {/* <div className="grid gap-6 md:grid-cols-2">
+                  <div className="space-y-4 rounded-lg border p-6 shadow-sm">
                     <h3 className="text-xl font-bold">Download & Use</h3>
                     <p className="text-muted-foreground">
                       The simplest way to join is to download our app and start earning MVN tokens through your daily
@@ -960,7 +1005,7 @@ export default function LightpaperPage() {
                       contact@getmovin.ai
                     </Link>
                   </div>
-                </div>
+                </div> */}
               </motion.div>
             </motion.div>
           </div>
