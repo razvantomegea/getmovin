@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 const SCRIPT_SRC_BASE = 'https://app.termly.io'
@@ -12,6 +12,18 @@ declare global {
       initialize: () => void;
     };
   }
+}
+
+// Client component that uses the hooks that need Suspense
+function TermlyClientComponent() {
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    window.Termly?.initialize()
+  }, [pathname, searchParams])
+
+  return null
 }
 
 export default function TermlyCMP({ 
@@ -45,12 +57,9 @@ export default function TermlyCMP({
     isScriptAdded.current = true
   }, [scriptSrc])
 
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-
-  useEffect(() => {
-    window.Termly?.initialize()
-  }, [pathname, searchParams])
-
-  return null
+  return (
+    <Suspense fallback={null}>
+      <TermlyClientComponent />
+    </Suspense>
+  )
 }
