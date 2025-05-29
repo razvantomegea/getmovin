@@ -52,7 +52,7 @@ export function Footer({ onSectionClick, animate = false }: FooterProps) {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Link href="https://github.com/razvantomegea" target="_blank" rel="noopener noreferrer">
+          <Link href="https://github.com/razvantomegea/movin-contracts" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faGithub} className="h-5 w-5 text-[#0095ff]" />
             <span className="sr-only">GitHub</span>
           </Link>
