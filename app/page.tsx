@@ -322,7 +322,7 @@ export default function LandingPage() {
               {[
                 {
                   title: "Move & Track",
-                  description: "Our app tracks your steps and METs using your phone's sensors and importing workouts from Apple Health and Google Fit",
+                  description: "Our app tracks your steps and METs using your phone's sensors and importing workouts from Apple Health and Google Health Connect",
                   icon: (
                     <FontAwesomeIcon 
                       icon={faRunning} 
@@ -482,7 +482,7 @@ export default function LandingPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>Import from Apple Health & Google Fit</span>
+                    <span>Import from Apple Health & Google Health Connect</span>
                   </li>
                   <li className="flex items-start gap-2 text-muted-foreground">
                     <FontAwesomeIcon icon={faTimes} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />

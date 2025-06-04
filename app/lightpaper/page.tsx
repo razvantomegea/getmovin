@@ -396,7 +396,7 @@ export default function LightpaperPage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span>Import activity from Apple Health & Google Fit</span>
+                        <span>Import activity from Apple Health & Google Health Connect</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
@@ -782,11 +782,13 @@ export default function LightpaperPage() {
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
                   <h3 className="text-xl font-bold">Q1-Q2 2025: MVP Launch</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
-                    <li>MVN contracts launch on the Base Layer-2 chain of Ethereum</li>
-                    <li>Core step and METs tracking functionality</li>
-                    <li>Basic staking mechanisms implementation</li>
-                    <li>Premium user features including HealthKit and Google Fit integration</li>
-                    <li>Referral program</li>
+                    <li>✓ MVN contracts launch on the Base Layer-2 chain of Ethereum</li>
+                    <li>✓ Core step and METs tracking functionality</li>
+                    <li>✓ Basic staking mechanisms implementation</li>
+                    <li>✓ Import activity from HealthKit and Google Health Connect</li>
+                    <li>✓ Referral program</li>
+                    <li>✓ Location and route tracking with interactive maps</li>
+                    <li>✓ Achievement badges and milestone rewards</li>
                     <li>App launch on Apple Store and Google Play</li>
                     <li>Public token listing on Uniswap, Gate.io, and Base</li>
                   </ul>
@@ -804,14 +806,13 @@ export default function LightpaperPage() {
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>Friend sync for joint exercises and shared rewards</li>
                     <li>Group activity tracking and leaderboards</li>
-                    <li>Location and route tracking with interactive maps</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
                   <h3 className="text-xl font-bold">Q2 2026: Gamified Experience</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>Community challenges with special rewards</li>
-                    <li>Achievement badges and milestone rewards</li>
+                    <li>Goal setting and tracking</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
