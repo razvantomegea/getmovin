@@ -283,7 +283,7 @@ export default function LandingPage() {
                 transition={{ delay: 0.8, duration: 0.7, type: "spring", stiffness: 100, damping: 20 }}
               >
                 <motion.div
-                  className="relative h-[500px] w-[250px] overflow-hidden rounded-[40px] border-[8px] border-muted bg-background shadow-xl"
+                  className="relative h-[600px] w-[280px] overflow-hidden rounded-[40px] border-[8px] border-muted bg-background shadow-xl"
                   whileHover={{ y: -5 }}
                   transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 >
@@ -535,7 +535,7 @@ export default function LandingPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>Access to maps & route tracking (soon)</span>
+                    <span>Access to maps & route tracking</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -612,7 +612,7 @@ export default function LandingPage() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 100, damping: 20 }}
               >
-                <div className="relative h-[500px] w-[250px] overflow-hidden rounded-[40px] border-[8px] border-muted bg-background shadow-xl">
+                <div className="relative h-[600px] w-[280px] overflow-hidden rounded-[40px] border-[8px] border-muted bg-background shadow-xl">
                   <Image
                     src="/images/download-img.png"
                     alt="App Stats Screen"
