@@ -322,7 +322,7 @@ export default function LandingPage() {
               {[
                 {
                   title: "Move & Track",
-                  description: "Our app tracks your steps and METs using your phone's sensors and importing workouts from Apple Health and Google Health Connect",
+                  description: "Our app tracks your steps and METs using your phone's sensors and importing workouts from your fitness tracker",
                   icon: (
                     <FontAwesomeIcon 
                       icon={faRunning} 
@@ -466,7 +466,7 @@ export default function LandingPage() {
                 <ul className="mb-8 space-y-3 text-left">
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>Basic step tracking</span>
+                    <span>Basic step tracking (10,000 steps minimum)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -482,7 +482,7 @@ export default function LandingPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span>Import from Apple Health & Google Health Connect</span>
+                    <span>Import from fitness tracker</span>
                   </li>
                   <li className="flex items-start gap-2 text-muted-foreground">
                     <FontAwesomeIcon icon={faTimes} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
@@ -519,7 +519,11 @@ export default function LandingPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span><strong>MET tracking</strong> and advanced fitness metrics</span>
+                    <span>Premium step tracking (5,000 steps minimum)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <span><strong>MET tracking</strong> (5 METs minimum) and advanced fitness metrics</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />

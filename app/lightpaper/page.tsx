@@ -292,7 +292,7 @@ export default function LightpaperPage() {
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Step Tracking & Rewards</h3>
                     <p className="text-muted-foreground">
-                      Earn MVN tokens for your daily steps with a minimum threshold of 10,000 steps and a maximum of 30,000 steps per day. Rate limited to 300 steps per minute to ensure fair play.
+                      Earn MVN tokens for your daily steps with minimum thresholds of 5,000 steps (premium users) or 10,000 steps (free users) and a maximum of 30,000 steps per day. Rate limited to 300 steps per minute to ensure fair play.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
@@ -304,7 +304,7 @@ export default function LightpaperPage() {
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Premium Integration</h3>
                     <p className="text-muted-foreground">
-                      Premium users can track METs (Metabolic Equivalent of Task) with a minimum of 10 METs and maximum of 500 METs daily, rate limited to 5 METs per minute, for additional rewards.
+                      Premium users can track METs (Metabolic Equivalent of Task) with a minimum of 5 METs and maximum of 500 METs daily, rate limited to 5 METs per minute, for additional rewards. Premium users also benefit from a lower step threshold of 5,000 steps versus 10,000 for free users.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
@@ -378,10 +378,10 @@ export default function LightpaperPage() {
                     <div className="text-2xl font-bold">0 MVN</div>
                     <p className="text-muted-foreground">/forever</p>
                     <ul className="space-y-2 text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span>Basic step tracking (10,000-30,000 steps daily)</span>
-                      </li>
+                                          <li className="flex items-start gap-2">
+                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <span>Basic step tracking (10,000-30,000 steps daily)</span>
+                    </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
                         <span>Earn MVN tokens for activity</span>
@@ -396,7 +396,7 @@ export default function LightpaperPage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span>Import activity from Apple Health & Google Health Connect</span>
+                        <span>Import activity from fitness tracker</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
@@ -424,7 +424,11 @@ export default function LightpaperPage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span><strong>MET tracking</strong> (10-500 METs daily)</span>
+                        <span>Premium step tracking (5,000-30,000 steps daily)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <span><strong>MET tracking</strong> (5-500 METs daily) and lower step threshold (5,000 steps minimum)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
@@ -503,12 +507,12 @@ export default function LightpaperPage() {
                   <div className="space-y-2 text-muted-foreground md:text-lg">
                     <p>
                       <span className="font-semibold">Step Rewards:</span> 1 MVN token per 10,000 steps at launch, with
-                      a minimum threshold of 10,000 steps. Maximum limits of 300 steps per minute and 30,000 steps per
+                      minimum thresholds of 5,000 steps for premium users and 10,000 steps for free users. Maximum limits of 300 steps per minute and 30,000 steps per
                       day ensure fair play. Rewards decrease by 0.1% per day to maintain token economics.
                     </p>
                     <p>
                       <span className="font-semibold">MET Rewards:</span> Earn MVN tokens from metabolic activity with a
-                      threshold of 10 METs, maximum of 5 METs per minute, and 500 METs per day. MET tracking is exclusive to premium users.
+                      threshold of 5 METs, maximum of 5 METs per minute, and 500 METs per day. MET tracking is exclusive to premium users.
                     </p>
                     <p>
                       <span className="font-semibold">Reward Rate Decrease:</span> Base reward rates decrease by 0.1% daily, compounded, to maintain long-term sustainability of the token economy.
@@ -668,12 +672,22 @@ export default function LightpaperPage() {
                         <tr className="border-b">
                           <td className="py-2">STEPS_THRESHOLD</td>
                           <td className="py-2">10,000</td>
-                          <td className="py-2">Minimum steps required for rewards</td>
+                          <td className="py-2">Minimum steps required for rewards (free users)</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">PREMIUM_STEPS_THRESHOLD</td>
+                          <td className="py-2">5,000</td>
+                          <td className="py-2">Minimum steps required for rewards (premium users)</td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">METS_THRESHOLD</td>
                           <td className="py-2">10</td>
-                          <td className="py-2">Minimum METs required for rewards</td>
+                          <td className="py-2">Minimum METs required for rewards (legacy)</td>
+                        </tr>
+                        <tr className="border-b">
+                          <td className="py-2">PREMIUM_METS_THRESHOLD</td>
+                          <td className="py-2">5</td>
+                          <td className="py-2">Minimum METs required for rewards (premium users)</td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">MAX_DAILY_STEPS</td>
@@ -785,7 +799,7 @@ export default function LightpaperPage() {
                     <li>✓ MVN contracts launch on the Base Layer-2 chain of Ethereum</li>
                     <li>✓ Core step and METs tracking functionality</li>
                     <li>✓ Basic staking mechanisms implementation</li>
-                    <li>✓ Import activity from HealthKit and Google Health Connect</li>
+                    <li>✓ Import activity from fitness tracker</li>
                     <li>✓ Referral program</li>
                     <li>✓ Location and route tracking with interactive maps</li>
                     <li>✓ Achievement badges and milestone rewards</li>
