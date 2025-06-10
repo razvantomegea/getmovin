@@ -75,8 +75,6 @@ export default function LandingPage() {
     },
   }
 
-  const titleChars = "Earn while you burn".split("")
-
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -213,7 +211,7 @@ export default function LandingPage() {
                       animate={{ opacity: 1 }}
                       transition={{ delay: 1.0, duration: 0.8 }}
                     >
-                      Earn while you burn
+                      Your effort counts
                     </motion.span>
                   </motion.h1>
                   <motion.p

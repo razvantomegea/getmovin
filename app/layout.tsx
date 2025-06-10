@@ -5,7 +5,7 @@ import TermlyCMP from './components/TermlyCMP'
 
 export const metadata: Metadata = {
   title: 'Movin',
-  description: 'Earn while you burn',
+  description: 'Your effort counts',
   icons: {
     icon: [
       { url: '/favicon/favicon.ico' },
