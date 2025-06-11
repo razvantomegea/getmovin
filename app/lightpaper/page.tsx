@@ -801,25 +801,24 @@ export default function LightpaperPage() {
                     <li>✓ Basic staking mechanisms implementation</li>
                     <li>✓ Import activity from fitness tracker</li>
                     <li>✓ Referral program</li>
-                    <li>✓ Location and route tracking with interactive maps</li>
-                    <li>✓ Achievement badges and milestone rewards</li>
-                    <li>App launch on Apple Store and Google Play</li>
-                    <li>Public token listing on Uniswap, Gate.io, and Base</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
                   <h3 className="text-xl font-bold">Q3-Q4 2025: Social Feed Features</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
-                    <li>Social feed for sharing achievements</li>
-                    <li>Enhanced social interactions and activity sharing</li>
-                    <li>Custom route creation and sharing</li>
+                    <li>✓ Location and route tracking with interactive maps</li>
+                    <li>✓ Achievement badges and milestone rewards</li>
+                    <li>✓ AI based calorie tracking</li>
+                    <li>App launch on Apple Store and Google Play</li>
+                    <li>Public token listing on Uniswap, Gate.io, and Base</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
                   <h3 className="text-xl font-bold">Q1 2026: Advanced Geolocation Features</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>Friend sync for joint exercises and shared rewards</li>
-                    <li>Group activity tracking and leaderboards</li>
+                    <li>Social feed for sharing achievements</li>
+                    <li>Enhanced social interactions and activity sharing</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
@@ -827,12 +826,12 @@ export default function LightpaperPage() {
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>Community challenges with special rewards</li>
                     <li>Goal setting and tracking</li>
+                    <li>Group activity tracking and leaderboards</li>
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
                   <h3 className="text-xl font-bold">Q3 2026: AI Integration</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
-                    <li>AI based calorie tracking</li>
                     <li>AI based personalized fitness recommendations</li>
                   </ul>
                 </div>
