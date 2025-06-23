@@ -4,8 +4,45 @@ import { Analytics } from "@vercel/analytics/next"
 import TermlyCMP from './components/TermlyCMP'
 
 export const metadata: Metadata = {
-  title: 'Movin',
-  description: 'Your effort counts',
+  metadataBase: new URL('https://getmovin.ai'),
+  title: {
+    default: 'Movin - Your effort counts',
+    template: `%s | Movin`,
+  },
+  description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take.',
+  openGraph: {
+    title: 'Movin - Your effort counts',
+    description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take.',
+    url: 'https://getmovin.ai',
+    siteName: 'Movin',
+    images: [
+      {
+        url: 'https://getmovin.ai/images/splash-dark.png',
+        width: 1200,
+        height: 630,
+        alt: 'Movin App on a phone',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Movin - Your effort counts',
+    description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take.',
+    images: ['https://getmovin.ai/images/splash-dark.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon/favicon.ico' },
@@ -27,6 +64,11 @@ export const metadata: Metadata = {
       },
     ],
   },
+  themeColor: '#ffffff',
+  other: {
+    'msapplication-TileColor': '#0095ff',
+    'google-adsense-account': 'ca-pub-2046001366406434',
+  }
 }
 
 const WEBSITE_UUID = '40d3e98e-5ac6-4a84-a24e-ac4cda0fa623'
@@ -38,12 +80,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta name="msapplication-TileColor" content="#0095ff" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="google-adsense-account" content="ca-pub-2046001366406434" />
-      </head>
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://getmovin.ai/",
+            "name": "Movin",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://getmovin.ai/",
+              "query-input": "required name=search_term_string"
+            }
+          })}}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Movin",
+            "url": "https://getmovin.ai/",
+            "logo": "https://getmovin.ai/images/logo.png"
+          })}}
+        />
+        {children}
+      </body>
       <Analytics />
       <TermlyCMP websiteUUID={WEBSITE_UUID} />
     </html>
