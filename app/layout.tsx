@@ -96,6 +96,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="subject" content="Fitness, Calorie Tracking, Weight Loss, Rewards, Move to Earn" />
+        <meta name="topic" content="Fitness and Rewards App" />
+        <meta name="rating" content="General" />
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+      </head>
       <body>
         <script
           type="application/ld+json"
