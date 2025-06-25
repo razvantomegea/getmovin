@@ -9,10 +9,26 @@ export const metadata: Metadata = {
     default: 'Movin - Your effort counts',
     template: `%s | Movin`,
   },
-  description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take.',
+  description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
+  keywords: [
+    'fitness',
+    'calorie tracking',
+    'weight loss',
+    'move to earn',
+    'rewards',
+    'crypto rewards',
+    'step counter',
+    'activity tracker',
+    'health',
+    'wellness',
+    'exercise',
+    'Base blockchain',
+    'getmovin',
+    'Movin app'
+  ],
   openGraph: {
     title: 'Movin - Your effort counts',
-    description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take.',
+    description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
     url: 'https://getmovin.ai',
     siteName: 'Movin',
     images: [
@@ -29,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Movin - Your effort counts',
-    description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take.',
+    description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
     images: ['https://getmovin.ai/images/splash-dark.png'],
   },
   robots: {
