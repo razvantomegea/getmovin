@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
+import { NewsletterSubscription } from '@/components/ui/newsletter-subscription';
 
 interface BlogPost {
   slug: string;
@@ -261,6 +262,20 @@ export default function BlogPage() {
                 </Button>
               </motion.div>
             )}
+
+            {/* Newsletter Subscription */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="mt-16"
+            >
+              <NewsletterSubscription
+                title="Never Miss an Update"
+                description="Get the latest insights on fitness technology, web3 innovation, and move-to-earn developments delivered straight to your inbox."
+                className="max-w-2xl mx-auto"
+              />
+            </motion.div>
           </>
         )}
       </main>

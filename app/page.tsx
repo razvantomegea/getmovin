@@ -1,48 +1,49 @@
-"use client"
+'use client';
 
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { useState, useEffect } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { 
-  faRunning, 
-  faCoins, 
-  faUsersRectangle, 
-  faStar, 
-  faCheck, 
-  faTimes, 
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faRunning,
+  faCoins,
+  faUsersRectangle,
+  faStar,
+  faCheck,
+  faTimes,
   faDownload,
   faArrowRight,
   faChevronRight,
   faBars,
-  faXmark
-} from "@fortawesome/free-solid-svg-icons"
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 
-import { Button } from "@/components/ui/button"
-import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
-import { Footer } from "@/app/components/Footer"
+import { Button } from '@/components/ui/button';
+import { useSmoothScroll } from '@/hooks/use-smooth-scroll';
+import { Footer } from '@/app/components/Footer';
+import { NewsletterSubscription } from '@/components/ui/newsletter-subscription';
 
 export default function LandingPage() {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+    setIsLoaded(true);
+  }, []);
 
   const { ref: featuresRef, inView: featuresInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   const { ref: downloadRef, inView: downloadInView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
-  const scrollToSection = useSmoothScroll()
+  const scrollToSection = useSmoothScroll();
 
   const container = {
     hidden: { opacity: 0 },
@@ -53,12 +54,12 @@ export default function LandingPage() {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const item = {
     hidden: { y: 20, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 300, damping: 24 } },
-  }
+    show: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 300, damping: 24 } },
+  };
 
   const logoVariants = {
     hidden: { scale: 0.8, opacity: 0, rotate: -10 },
@@ -67,13 +68,13 @@ export default function LandingPage() {
       opacity: 1,
       rotate: 0,
       transition: {
-        type: "spring",
+        type: 'spring',
         stiffness: 260,
         damping: 20,
         delay: 0.2,
       },
     },
-  }
+  };
 
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
@@ -83,10 +84,16 @@ export default function LandingPage() {
             className="flex items-center gap-2"
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
           >
             <motion.div variants={logoVariants} initial="hidden" animate="visible">
-              <Image src="/images/logo.png" alt="Movin Logo" width={32} height={32} className="rounded-md" />
+              <Image
+                src="/images/logo.png"
+                alt="Movin Logo"
+                width={32}
+                height={32}
+                className="rounded-md"
+              />
             </motion.div>
             <motion.span
               className="text-xl font-bold text-[#0095ff]"
@@ -100,20 +107,26 @@ export default function LandingPage() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6">
-            {["Features", "Pricing", "Download", "Blog", "Lightpaper"].map((item, i) => (
+            {['Features', 'Pricing', 'Download', 'Blog', 'Lightpaper'].map((item, i) => (
               <motion.div
                 key={item}
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.3 + i * 0.1, type: "spring", stiffness: 100, damping: 20 }}
+                transition={{ delay: 0.3 + i * 0.1, type: 'spring', stiffness: 100, damping: 20 }}
                 whileHover={{ y: -2 }}
               >
-                {item === "Lightpaper" ? (
-                  <Link href="/lightpaper" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
+                {item === 'Lightpaper' ? (
+                  <Link
+                    href="/lightpaper"
+                    className="text-sm font-medium transition-colors hover:text-[#0095ff]"
+                  >
                     {item}
                   </Link>
-                ) : item === "Blog" ? (
-                  <Link href="/blog" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
+                ) : item === 'Blog' ? (
+                  <Link
+                    href="/blog"
+                    className="text-sm font-medium transition-colors hover:text-[#0095ff]"
+                  >
                     {item}
                   </Link>
                 ) : (
@@ -133,7 +146,7 @@ export default function LandingPage() {
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.6, type: "spring", stiffness: 100, damping: 20 }}
+              transition={{ delay: 0.6, type: 'spring', stiffness: 100, damping: 20 }}
               whileHover={{ scale: 1.05 }}
             >
               <Link href="https://app.getmovin.ai">
@@ -145,8 +158,17 @@ export default function LandingPage() {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-              <Button variant="ghost" size="sm" className="p-1" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                {mobileMenuOpen ? <FontAwesomeIcon icon={faXmark} className="h-6 w-6" /> : <FontAwesomeIcon icon={faBars} className="h-6 w-6" />}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="p-1"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? (
+                  <FontAwesomeIcon icon={faXmark} className="h-6 w-6" />
+                ) : (
+                  <FontAwesomeIcon icon={faBars} className="h-6 w-6" />
+                )}
               </Button>
             </div>
           </div>
@@ -157,14 +179,14 @@ export default function LandingPage() {
           <motion.div
             className="md:hidden"
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
             <div className="container py-4 px-4 space-y-4 bg-background border-t">
-              {["Features", "Pricing", "Download", "Blog", "Lightpaper"].map((item) => (
+              {['Features', 'Pricing', 'Download', 'Blog', 'Lightpaper'].map((item) => (
                 <div key={item} className="py-2">
-                  {item === "Lightpaper" ? (
+                  {item === 'Lightpaper' ? (
                     <Link
                       href="/lightpaper"
                       className="block text-base font-medium transition-colors hover:text-[#0095ff]"
@@ -172,7 +194,7 @@ export default function LandingPage() {
                     >
                       {item}
                     </Link>
-                  ) : item === "Blog" ? (
+                  ) : item === 'Blog' ? (
                     <Link
                       href="/blog"
                       className="block text-base font-medium transition-colors hover:text-[#0095ff]"
@@ -185,8 +207,8 @@ export default function LandingPage() {
                       href={`#${item.toLowerCase()}`}
                       className="block text-base font-medium transition-colors hover:text-[#0095ff]"
                       onClick={(e) => {
-                        scrollToSection(e, item.toLowerCase())
-                        setMobileMenuOpen(false)
+                        scrollToSection(e, item.toLowerCase());
+                        setMobileMenuOpen(false);
                       }}
                     >
                       {item}
@@ -206,7 +228,13 @@ export default function LandingPage() {
                 <motion.div
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.7, duration: 0.5, type: "spring", stiffness: 100, damping: 20 }}
+                  transition={{
+                    delay: 0.7,
+                    duration: 0.5,
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 20,
+                  }}
                   className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]"
                 >
                   Web3 Fitness Revolution
@@ -216,7 +244,7 @@ export default function LandingPage() {
                     className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.8, type: "spring", stiffness: 100, damping: 20 }}
+                    transition={{ delay: 0.8, type: 'spring', stiffness: 100, damping: 20 }}
                   >
                     <motion.span
                       initial={{ opacity: 0 }}
@@ -230,17 +258,17 @@ export default function LandingPage() {
                     className="max-w-[600px] text-muted-foreground md:text-xl"
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.9, type: "spring", stiffness: 100, damping: 20 }}
+                    transition={{ delay: 0.9, type: 'spring', stiffness: 100, damping: 20 }}
                   >
-                    Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with
-                    crypto tokens for every step you take.
+                    Transform your daily movement into rewards. Our move-to-earn app built on Base
+                    rewards you with crypto tokens for every step you take.
                   </motion.p>
                 </div>
                 <motion.div
                   className="flex flex-col gap-2 min-[400px]:flex-row"
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 1.0, type: "spring", stiffness: 100, damping: 20 }}
+                  transition={{ delay: 1.0, type: 'spring', stiffness: 100, damping: 20 }}
                 >
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Link href="https://app.getmovin.ai">
@@ -255,8 +283,8 @@ export default function LandingPage() {
                       variant="outline"
                       className="gap-1.5 border-[#0095ff] text-[#0095ff]"
                       onClick={(e) => {
-                        e.preventDefault()
-                        scrollToSection(e as any, "features")
+                        e.preventDefault();
+                        scrollToSection(e as any, 'features');
                       }}
                     >
                       Learn More <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
@@ -290,12 +318,18 @@ export default function LandingPage() {
                 className="flex items-center justify-center"
                 initial={{ x: 100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.7, type: "spring", stiffness: 100, damping: 20 }}
+                transition={{
+                  delay: 0.8,
+                  duration: 0.7,
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 20,
+                }}
               >
                 <motion.div
                   className="relative h-[600px] w-[280px] overflow-hidden rounded-[40px] border-[8px] border-muted bg-background shadow-xl"
                   whileHover={{ y: -5 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 15 }}
                 >
                   <Image
                     src="/images/header-img.png"
@@ -310,7 +344,11 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50" ref={featuresRef}>
+        <section
+          id="features"
+          className="w-full py-12 md:py-24 lg:py-32 bg-muted/50"
+          ref={featuresRef}
+        >
           <div className="container px-4 md:px-6">
             <motion.div
               className="flex flex-col items-center justify-center space-y-4 text-center"
@@ -322,7 +360,9 @@ export default function LandingPage() {
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                   Features
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">How Movin Works</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  How Movin Works
+                </h2>
                 <p className="mx-auto max-w-[1100px] text-muted-foreground md:text-xl/relaxed">
                   Our blockchain-powered fitness app rewards your movement with real cryptocurrency
                 </p>
@@ -331,33 +371,23 @@ export default function LandingPage() {
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3">
               {[
                 {
-                  title: "Move & Track",
-                  description: "Our app tracks your steps and METs using your phone's sensors and importing workouts from your fitness tracker",
-                  icon: (
-                    <FontAwesomeIcon 
-                      icon={faRunning} 
-                      className="h-8 w-8 text-[#0095ff]" 
-                    />
-                  ),
+                  title: 'Move & Track',
+                  description:
+                    "Our app tracks your steps and METs using your phone's sensors and importing workouts from your fitness tracker",
+                  icon: <FontAwesomeIcon icon={faRunning} className="h-8 w-8 text-[#0095ff]" />,
                 },
                 {
-                  title: "Earn Tokens",
-                  description: "Convert your physical activity into MVN tokens on the Base Layer-2 chain of Ethereum and stake your tokens to earn even more",
-                  icon: (
-                    <FontAwesomeIcon 
-                      icon={faCoins} 
-                      className="h-8 w-8 text-[#0095ff]" 
-                    />
-                  ),
+                  title: 'Earn Tokens',
+                  description:
+                    'Convert your physical activity into MVN tokens on the Base Layer-2 chain of Ethereum and stake your tokens to earn even more',
+                  icon: <FontAwesomeIcon icon={faCoins} className="h-8 w-8 text-[#0095ff]" />,
                 },
                 {
-                  title: "Share & Compete",
-                  description: "Share your progress with friends, compete, and join a team with a partner to earn even more tokens. Both you and your referrals get 1 MVN when they join.",
+                  title: 'Share & Compete',
+                  description:
+                    'Share your progress with friends, compete, and join a team with a partner to earn even more tokens. Both you and your referrals get 1 MVN when they join.',
                   icon: (
-                    <FontAwesomeIcon 
-                      icon={faUsersRectangle} 
-                      className="h-8 w-8 text-[#0095ff]" 
-                    />
+                    <FontAwesomeIcon icon={faUsersRectangle} className="h-8 w-8 text-[#0095ff]" />
                   ),
                 },
               ].map((feature, i) => (
@@ -365,14 +395,24 @@ export default function LandingPage() {
                   key={feature.title}
                   className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm min-h-[280px]"
                   initial={{ x: i % 2 === 0 ? -100 : 100, opacity: 0 }}
-                  animate={featuresInView ? { x: 0, opacity: 1 } : { x: i % 2 === 0 ? -100 : 100, opacity: 0 }}
-                  transition={{ delay: i * 0.2, duration: 0.5, type: "spring", stiffness: 100, damping: 20 }}
-                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 149, 255, 0.1)" }}
+                  animate={
+                    featuresInView
+                      ? { x: 0, opacity: 1 }
+                      : { x: i % 2 === 0 ? -100 : 100, opacity: 0 }
+                  }
+                  transition={{
+                    delay: i * 0.2,
+                    duration: 0.5,
+                    type: 'spring',
+                    stiffness: 100,
+                    damping: 20,
+                  }}
+                  whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 149, 255, 0.1)' }}
                 >
                   <motion.div
                     className="flex h-16 w-16 items-center justify-center rounded-full bg-[#e6f4ff] dark:bg-[#0095ff]/10"
                     whileHover={{ rotate: 5, scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 10 }}
                   >
                     {feature.icon}
                   </motion.div>
@@ -449,7 +489,9 @@ export default function LandingPage() {
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                   Pricing
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Choose Your Plan</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Choose Your Plan
+                </h2>
                 <p className="mx-auto max-w-[1100px] text-muted-foreground md:text-xl/relaxed">
                   Unlock premium features to maximize your earnings and fitness journey
                 </p>
@@ -462,12 +504,20 @@ export default function LandingPage() {
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1, duration: 0.5, type: "spring", stiffness: 100, damping: 20 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 149, 255, 0.1)" }}
+                transition={{
+                  delay: 0.1,
+                  duration: 0.5,
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 20,
+                }}
+                whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 149, 255, 0.1)' }}
               >
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-2xl font-bold">Free</h3>
-                  <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff]">Basic</div>
+                  <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff]">
+                    Basic
+                  </div>
                 </div>
                 <div className="mb-4">
                   <span className="text-4xl font-bold">0 MVN</span>
@@ -475,31 +525,51 @@ export default function LandingPage() {
                 </div>
                 <ul className="mb-8 space-y-3 text-left">
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>Basic step tracking (10,000 steps minimum)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>Earn MVN tokens for activity</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>Staking up to 12 months</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>Referral program (1 MVN bonus for both parties + 1% rewards)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>Import from fitness tracker</span>
                   </li>
                   <li className="flex items-start gap-2 text-muted-foreground">
-                    <FontAwesomeIcon icon={faTimes} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faTimes}
+                      className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5"
+                    />
                     <span>Contains ads</span>
                   </li>
                 </ul>
-                <Button className="mt-auto w-full bg-[#0095ff] hover:bg-[#0080e0]">Get Started</Button>
+                <Button className="mt-auto w-full bg-[#0095ff] hover:bg-[#0080e0]">
+                  Get Started
+                </Button>
               </motion.div>
 
               <motion.div
@@ -507,15 +577,23 @@ export default function LandingPage() {
                 initial={{ x: 100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.5, type: "spring", stiffness: 100, damping: 20 }}
-                whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 149, 255, 0.2)" }}
+                transition={{
+                  delay: 0.2,
+                  duration: 0.5,
+                  type: 'spring',
+                  stiffness: 100,
+                  damping: 20,
+                }}
+                whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 149, 255, 0.2)' }}
               >
                 <div className="absolute -top-4 right-4 rounded-full bg-[#0095ff] px-3 py-1 text-xs font-semibold text-white">
                   RECOMMENDED
                 </div>
                 <div className="mb-4 flex items-center justify-between">
                   <h3 className="text-2xl font-bold">Premium</h3>
-                  <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff]">Advanced</div>
+                  <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff]">
+                    Advanced
+                  </div>
                 </div>
                 <div className="mb-4">
                   <span className="text-4xl font-bold">100 MVN</span>
@@ -524,44 +602,72 @@ export default function LandingPage() {
                 </div>
                 <ul className="mb-8 space-y-3 text-left">
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>Everything in Free plan</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>Premium step tracking (5,000 steps minimum)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                    <span><strong>MET tracking</strong> (5 METs minimum) and advanced fitness metrics</span>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
+                    <span>
+                      <strong>MET tracking</strong> (5 METs minimum) and advanced fitness metrics
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>
                       <strong>Ad-free</strong> experience
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>
                       <strong>24% APY</strong> staking for 2 years
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>Access to maps & route tracking</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>Friend sync for joint exercises (soon)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <FontAwesomeIcon icon={faCheck} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
                     <span>AI based calorie tracking (soon)</span>
                   </li>
                 </ul>
                 <Link href="https://app.getmovin.ai">
-                  <Button className="mt-auto w-full bg-[#0095ff] hover:bg-[#0080e0]">Upgrade Now</Button>
+                  <Button className="mt-auto w-full bg-[#0095ff] hover:bg-[#0080e0]">
+                    Upgrade Now
+                  </Button>
                 </Link>
               </motion.div>
             </div>
@@ -581,17 +687,20 @@ export default function LandingPage() {
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
               >
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                     Try Web App
                   </div>
                   <Link href="https://app.getmovin.ai">
-                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Start Earning Today</h2>
+                    <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                      Start Earning Today
+                    </h2>
                   </Link>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                    Experience Movin in your browser and transform your daily movement into cryptocurrency rewards. Mobile apps coming soon!
+                    Experience Movin in your browser and transform your daily movement into
+                    cryptocurrency rewards. Mobile apps coming soon!
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -604,7 +713,7 @@ export default function LandingPage() {
                       Try Web App
                     </Button>
                   </Link>
-                  <Link href="#features" onClick={(e) => scrollToSection(e as any, "features")}>
+                  <Link href="#features" onClick={(e) => scrollToSection(e as any, 'features')}>
                     <Button
                       variant="outline"
                       size="lg"
@@ -616,7 +725,9 @@ export default function LandingPage() {
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <FontAwesomeIcon icon={faCheck} className="h-4 w-4 text-[#0095ff]" />
-                  <span className="text-muted-foreground">Works on any device with a modern browser</span>
+                  <span className="text-muted-foreground">
+                    Works on any device with a modern browser
+                  </span>
                 </div>
               </motion.div>
               <motion.div
@@ -624,7 +735,7 @@ export default function LandingPage() {
                 initial={{ x: 100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                transition={{ type: 'spring', stiffness: 100, damping: 20 }}
               >
                 <div className="relative h-[600px] w-[280px] overflow-hidden rounded-[40px] border-[8px] border-muted bg-background shadow-xl">
                   <Image
@@ -639,8 +750,26 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
+        {/* Newsletter Subscription Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-[#f8fcff] to-[#e6f4ff] dark:from-[#0a0a0a] dark:to-[#0095ff]/5">
+          <div className="container px-4 md:px-6">
+            <motion.div
+              className="mx-auto max-w-3xl text-center"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+            >
+              <NewsletterSubscription
+                title="Join the Movin Community"
+                description="Stay ahead of the curve with exclusive insights, product updates, and the latest developments in fitness technology and web3 innovation. Plus, be the first to know about new features and community events!"
+              />
+            </motion.div>
+          </div>
+        </section>
       </main>
       <Footer onSectionClick={scrollToSection} animate={true} />
     </div>
-  )
+  );
 }

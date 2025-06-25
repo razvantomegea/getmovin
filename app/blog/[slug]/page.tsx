@@ -9,6 +9,7 @@ import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
 import { ShareButton } from '@/components/ui/share-button';
 import { Toaster } from '@/components/ui/toaster';
+import { NewsletterSubscription } from '@/components/ui/newsletter-subscription';
 
 export const viewport = {
   themeColor: '#ffffff',
@@ -261,6 +262,15 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               </div>
             </CardContent>
           </Card>
+
+          {/* Newsletter Subscription */}
+          <div className="mb-8">
+            <NewsletterSubscription
+              title="Stay in the Loop"
+              description="Subscribe to get notified when we publish new articles about fitness technology, web3, and move-to-earn innovations."
+              compact={true}
+            />
+          </div>
 
           {/* Navigation */}
           <div className="flex justify-between items-center">
