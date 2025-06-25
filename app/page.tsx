@@ -100,7 +100,7 @@ export default function LandingPage() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6">
-            {["Features", "Pricing", "Download", "Lightpaper"].map((item, i) => (
+            {["Features", "Pricing", "Download", "Blog", "Lightpaper"].map((item, i) => (
               <motion.div
                 key={item}
                 initial={{ x: -50, opacity: 0 }}
@@ -110,6 +110,10 @@ export default function LandingPage() {
               >
                 {item === "Lightpaper" ? (
                   <Link href="/lightpaper" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
+                    {item}
+                  </Link>
+                ) : item === "Blog" ? (
+                  <Link href="/blog" className="text-sm font-medium transition-colors hover:text-[#0095ff]">
                     {item}
                   </Link>
                 ) : (
@@ -158,11 +162,19 @@ export default function LandingPage() {
             transition={{ duration: 0.3 }}
           >
             <div className="container py-4 px-4 space-y-4 bg-background border-t">
-              {["Features", "Pricing", "Download", "Lightpaper"].map((item) => (
+              {["Features", "Pricing", "Download", "Blog", "Lightpaper"].map((item) => (
                 <div key={item} className="py-2">
                   {item === "Lightpaper" ? (
                     <Link
                       href="/lightpaper"
+                      className="block text-base font-medium transition-colors hover:text-[#0095ff]"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ) : item === "Blog" ? (
+                    <Link
+                      href="/blog"
                       className="block text-base font-medium transition-colors hover:text-[#0095ff]"
                       onClick={() => setMobileMenuOpen(false)}
                     >
