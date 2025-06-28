@@ -32,7 +32,7 @@ interface BlogPost {
 async function getBlogPost(slug: string): Promise<BlogPost | null> {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/blog/${slug}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL || location.origin}/api/blog/${slug}`,
       {
         cache: 'no-store',
       },

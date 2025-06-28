@@ -373,7 +373,7 @@ export default function LandingPage() {
                 {
                   title: 'Move & Track',
                   description:
-                    "Our app tracks your steps and METs using your phone's sensors and importing workouts from your fitness tracker",
+                    "Our app tracks your steps and METs using your phone's sensors and importing workouts from your fitness tracker. Any positive steps or METs are rewarded, up to the daily cap.",
                   icon: <FontAwesomeIcon icon={faRunning} className="h-8 w-8 text-[#0095ff]" />,
                 },
                 {
@@ -529,7 +529,7 @@ export default function LandingPage() {
                       icon={faCheck}
                       className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
                     />
-                    <span>Basic step tracking (10,000 steps minimum)</span>
+                    <span>Basic step tracking (up to 30,000 steps daily)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon
@@ -613,7 +613,7 @@ export default function LandingPage() {
                       icon={faCheck}
                       className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
                     />
-                    <span>Premium step tracking (5,000 steps minimum)</span>
+                    <span>Premium step tracking (up to 30,000 steps daily)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon
@@ -621,7 +621,8 @@ export default function LandingPage() {
                       className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
                     />
                     <span>
-                      <strong>MET tracking</strong> (5 METs minimum) and advanced fitness metrics
+                      <strong>MET tracking</strong> (up to 500 METs daily) and advanced fitness
+                      metrics
                     </span>
                   </li>
                   <li className="flex items-start gap-2">

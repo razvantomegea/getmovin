@@ -1,33 +1,28 @@
-"use client"
+'use client';
 
-import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { useState, useEffect } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { 
-  faChevronRight, 
-  faArrowLeft, 
-  faBars, 
-  faXmark 
-} from "@fortawesome/free-solid-svg-icons"
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight, faArrowLeft, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-import { Button } from "@/components/ui/button"
-import { useSmoothScroll } from "@/hooks/use-smooth-scroll"
-import { Footer } from "@/app/components/Footer"
+import { Button } from '@/components/ui/button';
+import { useSmoothScroll } from '@/hooks/use-smooth-scroll';
+import { Footer } from '@/app/components/Footer';
 
 export default function LightpaperPage() {
   const sections = [
-    { id: "overview", title: "Project Overview" },
-    { id: "problem", title: "Problem & Solution" },
-    { id: "features", title: "Features & Benefits" },
-    { id: "pricing", title: "Pricing" },
-    { id: "tokenomics", title: "Tokenomics" },
-    { id: "technical", title: "Smart Contract Architecture" },
-    { id: "roadmap", title: "Roadmap" },
-    { id: "team", title: "Team" },
-    { id: "contact", title: "Get Involved" },
-  ]
+    { id: 'overview', title: 'Project Overview' },
+    { id: 'problem', title: 'Problem & Solution' },
+    { id: 'features', title: 'Features & Benefits' },
+    { id: 'pricing', title: 'Pricing' },
+    { id: 'tokenomics', title: 'Tokenomics' },
+    { id: 'technical', title: 'Smart Contract Architecture' },
+    { id: 'roadmap', title: 'Roadmap' },
+    { id: 'team', title: 'Team' },
+    { id: 'contact', title: 'Get Involved' },
+  ];
 
   const container = {
     hidden: { opacity: 0 },
@@ -38,55 +33,55 @@ export default function LightpaperPage() {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const item = {
     hidden: { x: -50, opacity: 0 },
-    show: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 100, damping: 20 } },
-  }
+    show: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 100, damping: 20 } },
+  };
 
-  const scrollToSection = useSmoothScroll()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const scrollToSection = useSmoothScroll();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Check if there's a hash in the URL when the page loads
-    if (typeof window !== "undefined") {
-      const hash = window.location.hash
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
       if (hash) {
         // Remove the # from the hash
-        const id = hash.substring(1)
+        const id = hash.substring(1);
 
         // Add a small delay to ensure the page is fully loaded
         setTimeout(() => {
-          const element = document.getElementById(id)
+          const element = document.getElementById(id);
           if (element) {
-            const headerHeight = document.querySelector("header")?.offsetHeight || 0
-            const elementPosition = element.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20
+            const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
 
             window.scrollTo({
               top: offsetPosition,
-              behavior: "smooth",
-            })
+              behavior: 'smooth',
+            });
           }
-        }, 100)
+        }, 100);
       }
     }
-  }, [])
+  }, []);
 
   // Add a debug check to verify section IDs
 
   useEffect(() => {
     // Debug check to verify all section IDs exist
-    if (process.env.NODE_ENV === "development") {
+    if (process.env.NODE_ENV === 'development') {
       sections.forEach((section) => {
-        const element = document.getElementById(section.id)
+        const element = document.getElementById(section.id);
         if (!element) {
-          console.warn(`Section with ID "${section.id}" not found in the DOM`)
+          console.warn(`Section with ID "${section.id}" not found in the DOM`);
         }
-      })
+      });
     }
-  }, [sections])
+  }, [sections]);
 
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
@@ -96,11 +91,17 @@ export default function LightpaperPage() {
             className="flex items-center gap-2"
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.2 }}
           >
             <Link href="/">
               <div className="flex items-center gap-2">
-                <Image src="/images/logo.png" alt="Movin Logo" width={32} height={32} className="rounded-md" />
+                <Image
+                  src="/images/logo.png"
+                  alt="Movin Logo"
+                  width={32}
+                  height={32}
+                  className="rounded-md"
+                />
                 <span className="text-xl font-bold text-[#0095ff]">Movin</span>
               </div>
             </Link>
@@ -113,7 +114,7 @@ export default function LightpaperPage() {
                 key={section.id}
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: 0.3 + i * 0.1, type: "spring", stiffness: 100, damping: 20 }}
+                transition={{ delay: 0.3 + i * 0.1, type: 'spring', stiffness: 100, damping: 20 }}
                 whileHover={{ y: -2 }}
               >
                 <Link
@@ -131,7 +132,7 @@ export default function LightpaperPage() {
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.6, type: "spring", stiffness: 100, damping: 20 }}
+              transition={{ delay: 0.6, type: 'spring', stiffness: 100, damping: 20 }}
               whileHover={{ scale: 1.05 }}
             >
               <Link href="/">
@@ -143,8 +144,17 @@ export default function LightpaperPage() {
 
             {/* Mobile Menu Button */}
             <div className="[@media(min-width:1100px)]:hidden">
-              <Button variant="ghost" size="sm" className="p-1" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                {mobileMenuOpen ? <FontAwesomeIcon icon={faXmark} className="h-6 w-6" /> : <FontAwesomeIcon icon={faBars} className="h-6 w-6" />}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="p-1"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? (
+                  <FontAwesomeIcon icon={faXmark} className="h-6 w-6" />
+                ) : (
+                  <FontAwesomeIcon icon={faBars} className="h-6 w-6" />
+                )}
               </Button>
             </div>
           </div>
@@ -155,7 +165,7 @@ export default function LightpaperPage() {
           <motion.div
             className="[@media(min-width:1100px)]:hidden"
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
+            animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
@@ -166,8 +176,8 @@ export default function LightpaperPage() {
                     href={`/lightpaper/#${section.id}`}
                     className="block text-base font-medium transition-colors hover:text-[#0095ff]"
                     onClick={(e) => {
-                      scrollToSection(e, section.id)
-                      setMobileMenuOpen(false)
+                      scrollToSection(e, section.id);
+                      setMobileMenuOpen(false);
                     }}
                   >
                     {section.title}
@@ -190,7 +200,9 @@ export default function LightpaperPage() {
               <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                 Official Documentation
               </div>
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">Movin Lightpaper</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                Movin Lightpaper
+              </h1>
               <p className="max-w-[1100px] text-muted-foreground md:text-xl">
                 The comprehensive guide to our move-to-earn ecosystem on Base
               </p>
@@ -211,19 +223,22 @@ export default function LightpaperPage() {
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                   01
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Project Overview</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Project Overview
+                </h2>
               </motion.div>
               <motion.div variants={item} className="space-y-4">
                 <p className="text-muted-foreground md:text-lg">
-                  Movin is a revolutionary move-to-earn application built on the Base Layer-2 chain of Ethereum that rewards users
-                  for their physical activity. Our mission is to promote healthier lifestyles by incentivizing regular
-                  exercise through cryptocurrency rewards.
+                  Movin is a revolutionary move-to-earn application built on the Base Layer-2 chain
+                  of Ethereum that rewards users for their physical activity. Our mission is to
+                  promote healthier lifestyles by incentivizing regular exercise through
+                  cryptocurrency rewards.
                 </p>
                 <p className="text-muted-foreground md:text-lg">
-                  By converting steps and metabolic equivalent of task (METs) into MVN tokens, we create a sustainable
-                  ecosystem where fitness and financial rewards go hand in hand. Our vision is to build a global
-                  community of health-conscious individuals who are motivated to stay active and earn rewards
-                  simultaneously.
+                  By converting steps and metabolic equivalent of task (METs) into MVN tokens, we
+                  create a sustainable ecosystem where fitness and financial rewards go hand in
+                  hand. Our vision is to build a global community of health-conscious individuals
+                  who are motivated to stay active and earn rewards simultaneously.
                 </p>
               </motion.div>
             </motion.div>
@@ -243,28 +258,33 @@ export default function LightpaperPage() {
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                   02
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Problem & Solution</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Problem & Solution
+                </h2>
               </motion.div>
               <motion.div variants={item} className="space-y-8">
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold">The Problem</h3>
                   <p className="text-muted-foreground md:text-lg">
-                    Despite knowing the benefits of regular physical activity, many people struggle to maintain
-                    consistent exercise habits. Traditional fitness apps lack compelling incentives to keep users
-                    engaged long-term, leading to high dropout rates and abandoned fitness goals.
+                    Despite knowing the benefits of regular physical activity, many people struggle
+                    to maintain consistent exercise habits. Traditional fitness apps lack compelling
+                    incentives to keep users engaged long-term, leading to high dropout rates and
+                    abandoned fitness goals.
                   </p>
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold">Our Solution</h3>
                   <p className="text-muted-foreground md:text-lg">
-                    Movin transforms the fitness experience by introducing tangible, financial rewards for physical
-                    activity. By leveraging blockchain technology, we create a transparent, secure system where users
-                    earn MVN tokens for their steps and metabolic activity. This creates a powerful incentive loop that
-                    encourages consistent exercise habits.
+                    Movin transforms the fitness experience by introducing tangible, financial
+                    rewards for physical activity. By leveraging blockchain technology, we create a
+                    transparent, secure system where users earn MVN tokens for their steps and
+                    metabolic activity. This creates a powerful incentive loop that encourages
+                    consistent exercise habits.
                   </p>
                   <p className="text-muted-foreground md:text-lg">
-                    Our app includes sophisticated verification mechanisms to ensure rewards are earned through genuine
-                    physical activity, maintaining the integrity of our ecosystem while promoting healthier lifestyles.
+                    Our app includes sophisticated verification mechanisms to ensure rewards are
+                    earned through genuine physical activity, maintaining the integrity of our
+                    ecosystem while promoting healthier lifestyles.
                   </p>
                 </div>
               </motion.div>
@@ -285,59 +305,87 @@ export default function LightpaperPage() {
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                   03
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Features & Benefits</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Features & Benefits
+                </h2>
               </motion.div>
               <motion.div variants={item} className="space-y-8">
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Step Tracking & Rewards</h3>
                     <p className="text-muted-foreground">
-                      Earn MVN tokens for your daily steps with minimum thresholds of 5,000 steps (premium users) or 10,000 steps (free users) and a maximum of 30,000 steps per day. Rate limited to 300 steps per minute to ensure fair play.
+                      Earn MVN tokens for your daily steps—any positive number of steps is rewarded,
+                      up to a maximum of 30,000 steps per day. Rate limited to 300 steps per minute
+                      to ensure fair play.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Staking Rewards</h3>
                     <p className="text-muted-foreground">
-                      Stake and lock your MVN tokens for up to 24 months to earn 24% APY. Lock periods of 1, 3, 6, 12, and 24 months are available, each with corresponding multipliers.
+                      Stake and lock your MVN tokens for up to 24 months to earn 24% APY. Lock
+                      periods of 1, 3, 6, 12, and 24 months are available, each with corresponding
+                      multipliers.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Premium Integration</h3>
                     <p className="text-muted-foreground">
-                      Premium users can track METs (Metabolic Equivalent of Task) with a minimum of 5 METs and maximum of 500 METs daily, rate limited to 5 METs per minute, for additional rewards. Premium users also benefit from a lower step threshold of 5,000 steps versus 10,000 for free users.
+                      Premium users can track METs (Metabolic Equivalent of Task) with any positive
+                      METs rewarded, up to a maximum of 500 METs daily, rate limited to 5 METs per
+                      minute, for additional rewards. Premium users also benefit from a higher daily
+                      METs cap.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                     <h3 className="text-xl font-bold">Referral Program</h3>
                     <p className="text-muted-foreground">
-                      Both referrer and referee receive 1 MVN token upon successful registration. Additionally, referrers earn 1% of referred users' activity rewards automatically when they claim. Referrers can have multiple referees, but each referee can only have one referrer.
+                      Both referrer and referee receive 1 MVN token upon successful registration.
+                      Additionally, referrers earn 1% of referred users' activity rewards
+                      automatically when they claim. Referrers can have multiple referees, but each
+                      referee can only have one referrer.
                     </p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold">Additional Features</h3>
                   <p className="text-muted-foreground md:text-lg">
-                    Our comprehensive roadmap (see Roadmap section) outlines the planned release of additional features including:
+                    Our comprehensive roadmap (see Roadmap section) outlines the planned release of
+                    additional features including:
                   </p>
                   <ul className="space-y-2 text-muted-foreground md:text-lg">
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>Enhanced rewards and gamification systems</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>Expanded ecosystem integrations</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>Advanced fitness tracking analytics</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>Personalized fitness recommendations</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>AI based calorie tracking</span>
                     </li>
                   </ul>
@@ -360,46 +408,68 @@ export default function LightpaperPage() {
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                   04
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Subscription Plans</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Subscription Plans
+                </h2>
               </motion.div>
               <motion.div variants={item} className="space-y-8">
                 <p className="text-muted-foreground md:text-lg">
-                  Movin offers both free and premium subscription options to cater to different user needs. While all
-                  users can earn MVN tokens through physical activity, premium subscribers unlock additional features
-                  and benefits.
+                  Movin offers both free and premium subscription options to cater to different user
+                  needs. While all users can earn MVN tokens through physical activity, premium
+                  subscribers unlock additional features and benefits.
                 </p>
 
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-4 rounded-lg border p-6 shadow-sm">
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold">Free Plan</h3>
-                      <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-xs text-[#0095ff]">Basic</div>
+                      <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-xs text-[#0095ff]">
+                        Basic
+                      </div>
                     </div>
                     <div className="text-2xl font-bold">0 MVN</div>
                     <p className="text-muted-foreground">/forever</p>
                     <ul className="space-y-2 text-muted-foreground">
-                                          <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                      <span>Basic step tracking (10,000-30,000 steps daily)</span>
-                    </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
+                        <span>Basic step tracking (up to 30,000 steps daily)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>Earn MVN tokens for activity</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>Staking options up to 12 months</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>Referral program (1 MVN bonus for both parties + 1% rewards)</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>Import activity from fitness tracker</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5"
+                        />
                         <span>Contains advertisements</span>
                       </li>
                     </ul>
@@ -411,47 +481,77 @@ export default function LightpaperPage() {
                     </div>
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-bold">Premium Plan</h3>
-                      <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-xs text-[#0095ff]">Advanced</div>
+                      <div className="rounded-full bg-[#e6f4ff] px-3 py-1 text-xs text-[#0095ff]">
+                        Advanced
+                      </div>
                     </div>
                     <div>
                       <div className="text-2xl font-bold">100 MVN/month</div>
-                      <div className="text-sm text-muted-foreground">or 1000 MVN/year (save 16%)</div>
+                      <div className="text-sm text-muted-foreground">
+                        or 1000 MVN/year (save 16%)
+                      </div>
                     </div>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>Everything in Free plan</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span>Premium step tracking (5,000-30,000 steps daily)</span>
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
+                        <span>Premium step tracking (up to 30,000 steps daily)</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                        <span><strong>MET tracking</strong> (5-500 METs daily) and lower step threshold (5,000 steps minimum)</span>
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
+                        <span>
+                          <strong>MET tracking</strong> (up to 500 METs daily)
+                        </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>
                           <strong>Ad-free</strong> experience
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>
                           Exclusive 24-month staking with <strong>24% APY</strong>
                         </span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>Access to maps and route tracking</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>Friend sync for joint exercises (soon)</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
                         <span>AI based calorie tracking (soon)</span>
                       </li>
                     </ul>
@@ -460,9 +560,9 @@ export default function LightpaperPage() {
 
                 <div className="rounded-lg border p-4 bg-[#e6f4ff]/50">
                   <p className="text-sm text-muted-foreground">
-                    <strong>Note:</strong> Premium subscribers enjoy significantly higher earning potential through the
-                    exclusive 24-month staking option with 24% APY, as well as enhanced activity tracking through
-                    third-party integrations.
+                    <strong>Note:</strong> Premium subscribers enjoy significantly higher earning
+                    potential through the exclusive 24-month staking option with 24% APY, as well as
+                    enhanced activity tracking through third-party integrations.
                   </p>
                 </div>
               </motion.div>
@@ -483,7 +583,9 @@ export default function LightpaperPage() {
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                   05
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Tokenomics</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Tokenomics
+                </h2>
               </motion.div>
               <motion.div variants={item} className="space-y-8">
                 <div className="space-y-4">
@@ -499,32 +601,48 @@ export default function LightpaperPage() {
                     </div>
                   </div>
                   <p className="text-muted-foreground md:text-lg">
-                    The MVN token is built on the ERC20 standard with pausable functionality for emergency situations. It supports minting and burning operations, and includes a token locking mechanism allowing users to lock their tokens for a specified duration.
+                    The MVN token is built on the ERC20 standard with pausable functionality for
+                    emergency situations. It supports minting and burning operations, and includes a
+                    token locking mechanism allowing users to lock their tokens for a specified
+                    duration.
                   </p>
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold">Reward System</h3>
                   <div className="space-y-2 text-muted-foreground md:text-lg">
                     <p>
-                      <span className="font-semibold">Step Rewards:</span> 1 MVN token per 10,000 steps at launch, with
-                      minimum thresholds of 5,000 steps for premium users and 10,000 steps for free users. Maximum limits of 300 steps per minute and 30,000 steps per
-                      day ensure fair play. Rewards decrease by 0.1% per day to maintain token economics.
+                      <span className="font-semibold">Step Rewards:</span> 1 MVN token per 10,000
+                      steps at launch. Any positive steps are rewarded, up to a daily cap of 30,000
+                      steps. Per-minute (300 steps/min) and daily caps remain enforced. Rewards
+                      rates decrease by 0.1% daily, compounded.
                     </p>
                     <p>
-                      <span className="font-semibold">MET Rewards:</span> Earn MVN tokens from metabolic activity with a
-                      threshold of 5 METs, maximum of 5 METs per minute, and 500 METs per day. MET tracking is exclusive to premium users.
+                      <span className="font-semibold">MET Rewards:</span> Earn MVN tokens from
+                      metabolic activity. Any positive METs are rewarded, up to a daily cap of 500
+                      METs. Per-minute (5 METs/min) and daily caps remain enforced. Rewards rates
+                      decrease by 0.1% daily, compounded.
                     </p>
                     <p>
-                      <span className="font-semibold">Reward Rate Decrease:</span> Base reward rates decrease by 0.1% daily, compounded, to maintain long-term sustainability of the token economy.
+                      <span className="font-semibold">Reward Rate Decrease:</span> Base reward rates
+                      decrease by 0.1% daily, compounded, to maintain long-term sustainability of
+                      the token economy.
                     </p>
                     <p>
-                      <span className="font-semibold">Rewards Expiration:</span> Activity rewards reset at midnight (00:00 am) daily. Any unclaimed activity rewards from the previous day are lost. Additionally, staking rewards expire after 24 hours since the last rewards were claimed.
+                      <span className="font-semibold">Rewards Expiration:</span> Activity rewards
+                      reset at midnight (00:00 am) daily. Any unclaimed activity rewards from the
+                      previous day are lost. Additionally, staking rewards expire after 24 hours
+                      since the last rewards were claimed.
                     </p>
                     <p>
-                      <span className="font-semibold">Unstaking Fee:</span> A 1% burn fee applies to all unstaking operations. This mechanism helps maintain token scarcity and rewards long-term holders.
+                      <span className="font-semibold">Unstaking Fee:</span> A 1% burn fee applies to
+                      all unstaking operations. This mechanism helps maintain token scarcity and
+                      rewards long-term holders.
                     </p>
                     <p>
-                      <span className="font-semibold">Subscription Burning:</span> Premium subscription payments (100 MVN monthly or 1000 MVN yearly) are burned, permanently removing these tokens from circulation to create deflationary pressure and maintain the token's value over time.
+                      <span className="font-semibold">Subscription Burning:</span> Premium
+                      subscription payments (100 MVN monthly or 1000 MVN yearly) are burned,
+                      permanently removing these tokens from circulation to create deflationary
+                      pressure and maintain the token's value over time.
                     </p>
                   </div>
                 </div>
@@ -575,16 +693,24 @@ export default function LightpaperPage() {
                     </table>
                   </div>
                   <p className="text-muted-foreground md:text-lg">
-                    Staking rewards are calculated based on: stake amount × APR × time staked. Users can have multiple stakes with different lock periods and can claim rewards individually or all at once.
+                    Staking rewards are calculated based on: stake amount × APR × time staked. Users
+                    can have multiple stakes with different lock periods and can claim rewards
+                    individually or all at once.
                   </p>
                   <p className="text-muted-foreground md:text-lg">
-                    After a stake's lock period ends, users can choose to restake their tokens into a new lock period without paying the 1% unstaking fee. This encourages long-term participation while providing flexibility to adjust staking strategy when lock periods expire.
+                    After a stake's lock period ends, users can choose to restake their tokens into
+                    a new lock period without paying the 1% unstaking fee. This encourages long-term
+                    participation while providing flexibility to adjust staking strategy when lock
+                    periods expire.
                   </p>
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold">Technical Implementation</h3>
                   <p className="text-muted-foreground md:text-lg">
-                    MOVINEarn smart contract implements a comprehensive system with security features including ReentrancyGuard protection, pausable functionality, and Ownable2Step for secure ownership management. The contract employs the UUPS pattern for upgradeability with proper storage management.
+                    MOVINEarn smart contract implements a comprehensive system with security
+                    features including ReentrancyGuard protection, pausable functionality, and
+                    Ownable2Step for secure ownership management. The contract employs the UUPS
+                    pattern for upgradeability with proper storage management.
                   </p>
                 </div>
               </motion.div>
@@ -605,13 +731,17 @@ export default function LightpaperPage() {
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                   06
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Smart Contract Architecture</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Smart Contract Architecture
+                </h2>
               </motion.div>
               <motion.div variants={item} className="space-y-8">
                 <p className="text-muted-foreground md:text-lg">
-                  The MOVINEarn smart contract implements a sophisticated token-based rewards system with multiple integrated components working together to create a secure and sustainable ecosystem.
+                  The MOVINEarn smart contract implements a sophisticated token-based rewards system
+                  with multiple integrated components working together to create a secure and
+                  sustainable ecosystem.
                 </p>
-                
+
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold">Core Components</h3>
                   <div className="grid gap-6 md:grid-cols-2">
@@ -619,44 +749,68 @@ export default function LightpaperPage() {
                       <h3 className="font-bold">Token System</h3>
                       <ul className="space-y-2 text-muted-foreground">
                         <li className="flex items-start gap-2">
-                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <FontAwesomeIcon
+                            icon={faChevronRight}
+                            className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                          />
                           <span>ERC20 standard with pausable functionality</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <FontAwesomeIcon
+                            icon={faChevronRight}
+                            className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                          />
                           <span>Supports minting and burning operations</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <FontAwesomeIcon
+                            icon={faChevronRight}
+                            className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                          />
                           <span>Token locking mechanism for specified durations</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
-                          <span>Deflationary design with multiple burning mechanisms: unstaking fee (1%), premium subscription payments</span>
+                          <FontAwesomeIcon
+                            icon={faChevronRight}
+                            className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                          />
+                          <span>
+                            Deflationary design with multiple burning mechanisms: unstaking fee
+                            (1%), premium subscription payments
+                          </span>
                         </li>
                       </ul>
                     </div>
-                    
+
                     <div className="space-y-4 rounded-lg border p-4 shadow-sm">
                       <h3 className="font-bold">Activity System</h3>
                       <ul className="space-y-2 text-muted-foreground">
                         <li className="flex items-start gap-2">
-                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <FontAwesomeIcon
+                            icon={faChevronRight}
+                            className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                          />
                           <span>Rate-limited step and MET tracking</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <FontAwesomeIcon
+                            icon={faChevronRight}
+                            className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                          />
                           <span>Daily reset based on activity timestamp</span>
                         </li>
                         <li className="flex items-start gap-2">
-                          <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                          <FontAwesomeIcon
+                            icon={faChevronRight}
+                            className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                          />
                           <span>Decreasing reward rates to maintain longevity</span>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold">Technical Parameters</h3>
                   <div className="overflow-x-auto">
@@ -671,23 +825,27 @@ export default function LightpaperPage() {
                       <tbody>
                         <tr className="border-b">
                           <td className="py-2">STEPS_THRESHOLD</td>
-                          <td className="py-2">10,000</td>
-                          <td className="py-2">Minimum steps required for rewards (free users)</td>
+                          <td className="py-2">N/A</td>
+                          <td className="py-2">No minimum steps required for rewards</td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">PREMIUM_STEPS_THRESHOLD</td>
-                          <td className="py-2">5,000</td>
-                          <td className="py-2">Minimum steps required for rewards (premium users)</td>
+                          <td className="py-2">N/A</td>
+                          <td className="py-2">
+                            No minimum steps required for rewards (premium users)
+                          </td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">METS_THRESHOLD</td>
-                          <td className="py-2">10</td>
-                          <td className="py-2">Minimum METs required for rewards (legacy)</td>
+                          <td className="py-2">N/A</td>
+                          <td className="py-2">No minimum METs required for rewards</td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">PREMIUM_METS_THRESHOLD</td>
-                          <td className="py-2">5</td>
-                          <td className="py-2">Minimum METs required for rewards (premium users)</td>
+                          <td className="py-2">N/A</td>
+                          <td className="py-2">
+                            No minimum METs required for rewards (premium users)
+                          </td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">MAX_DAILY_STEPS</td>
@@ -722,7 +880,9 @@ export default function LightpaperPage() {
                         <tr className="border-b">
                           <td className="py-2">REFERRAL_REGISTRATION_BONUS</td>
                           <td className="py-2">1 MVN</td>
-                          <td className="py-2">Bonus for both referrer and referee upon registration</td>
+                          <td className="py-2">
+                            Bonus for both referrer and referee upon registration
+                          </td>
                         </tr>
                         <tr className="border-b">
                           <td className="py-2">HALVING_DECREASE_PERCENT</td>
@@ -737,34 +897,51 @@ export default function LightpaperPage() {
                         <tr>
                           <td className="py-2">STAKING_REWARDS_EXPIRATION</td>
                           <td className="py-2">24 hours</td>
-                          <td className="py-2">Time after last claim when staking rewards expire</td>
+                          <td className="py-2">
+                            Time after last claim when staking rewards expire
+                          </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
                 </div>
-                
+
                 <div className="space-y-4">
                   <h3 className="text-xl font-bold">Security Features</h3>
                   <ul className="space-y-2 text-muted-foreground md:text-lg">
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>ReentrancyGuard protection on critical functions</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>Pausable functionality for emergency situations</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>Ownable2Step for secure ownership management</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>Input validation and rate limiting</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <FontAwesomeIcon icon={faChevronRight} className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5" />
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
                       <span>UUPS pattern for secure contract upgradeability</span>
                     </li>
                   </ul>
@@ -872,25 +1049,28 @@ export default function LightpaperPage() {
               <motion.div variants={item} className="grid gap-8 md:grid-cols-2">
                 {[
                   {
-                    name: "Razvan Tomegea",
-                    role: "Founder & Core Developer",
-                    bio: "Blockchain developer and entrepreneur based in Romania. Passionate about fitness and technology, with 11 years of experience.",
-                    linkedin: "https://www.linkedin.com/in/razvantomegea/"
+                    name: 'Razvan Tomegea',
+                    role: 'Founder & Core Developer',
+                    bio: 'Blockchain developer and entrepreneur based in Romania. Passionate about fitness and technology, with 11 years of experience.',
+                    linkedin: 'https://www.linkedin.com/in/razvantomegea/',
                   },
                   {
-                    name: "AI",
-                    role: "Core Developer Assistant",
-                    bio: "Advanced AI system that helps with development, user assistance, and data analysis to optimize the Movin experience.",
-                    avatar: "/images/robot.png",
+                    name: 'AI',
+                    role: 'Core Developer Assistant',
+                    bio: 'Advanced AI system that helps with development, user assistance, and data analysis to optimize the Movin experience.',
+                    avatar: '/images/robot.png',
                   },
                 ].map((member, i) => (
-                  <div key={i} className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
-                    <Image 
-                      src={member.avatar || "/images/avatar.png"} 
-                      alt={member.name} 
-                      width={96} 
-                      height={96} 
-                      className="h-24 w-24 rounded-full object-cover" 
+                  <div
+                    key={i}
+                    className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm"
+                  >
+                    <Image
+                      src={member.avatar || '/images/avatar.png'}
+                      alt={member.name}
+                      width={96}
+                      height={96}
+                      className="h-24 w-24 rounded-full object-cover"
                     />
                     <div className="text-center">
                       <h3 className="text-xl font-bold">{member.name}</h3>
@@ -898,7 +1078,12 @@ export default function LightpaperPage() {
                       <p className="mt-2 text-muted-foreground">{member.bio}</p>
                       {member.linkedin && (
                         <div className="mt-3">
-                          <Link href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-[#0095ff] hover:underline">
+                          <Link
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#0095ff] hover:underline"
+                          >
                             LinkedIn Profile
                           </Link>
                         </div>
@@ -924,44 +1109,60 @@ export default function LightpaperPage() {
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
                   09
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Get Involved</h2>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                  Get Involved
+                </h2>
               </motion.div>
               <motion.div variants={item} className="space-y-8">
                 <p className="text-muted-foreground md:text-lg">
-                  Join our growing community of fitness enthusiasts and crypto believers. There are many ways to get
-                  involved with the Movin ecosystem:
+                  Join our growing community of fitness enthusiasts and crypto believers. There are
+                  many ways to get involved with the Movin ecosystem:
                 </p>
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-4 rounded-lg border p-6 shadow-sm">
                     <h3 className="text-xl font-bold">Use Web App</h3>
                     <p className="text-muted-foreground">
-                      The simplest way to join is to use our web app and start earning MVN tokens through your daily
-                      activity.
+                      The simplest way to join is to use our web app and start earning MVN tokens
+                      through your daily activity.
                     </p>
                     <div className="flex flex-wrap gap-2">
-                    <Link href="https://app.getmovin.ai">
-                      <Button className="bg-[#0095ff] hover:bg-[#0080e0]">Try Web App</Button>
-                    </Link>
+                      <Link href="https://app.getmovin.ai">
+                        <Button className="bg-[#0095ff] hover:bg-[#0080e0]">Try Web App</Button>
+                      </Link>
                     </div>
                   </div>
                   <div className="space-y-4 rounded-lg border p-6 shadow-sm">
                     <h3 className="text-xl font-bold">Invest & Stake</h3>
                     <p className="text-muted-foreground">
-                      Acquire MVN tokens and participate in our staking program to earn passive rewards while supporting
-                      the ecosystem.
+                      Acquire MVN tokens and participate in our staking program to earn passive
+                      rewards while supporting the ecosystem.
                     </p>
-                    <Button onClick={() => window.open("https://app.uniswap.org/positions/v4/base/40814", "_blank")} className="bg-[#0095ff] hover:bg-[#0080e0]">Get MVN tokens</Button>
+                    <Button
+                      onClick={() =>
+                        window.open('https://app.uniswap.org/positions/v4/base/40814', '_blank')
+                      }
+                      className="bg-[#0095ff] hover:bg-[#0080e0]"
+                    >
+                      Get MVN tokens
+                    </Button>
                   </div>
                   <div className="space-y-4 rounded-lg border p-6 shadow-sm">
                     <h3 className="text-xl font-bold">Community</h3>
                     <p className="text-muted-foreground">
-                      Join our vibrant community on social media platforms to stay updated and connect with other users.
+                      Join our vibrant community on social media platforms to stay updated and
+                      connect with other users.
                     </p>
                     <div className="flex gap-4">
-                      <Link href="https://t.me/getmovinai" className="text-[#0095ff] hover:underline">
+                      <Link
+                        href="https://t.me/getmovinai"
+                        className="text-[#0095ff] hover:underline"
+                      >
                         Telegram
                       </Link>
-                      <Link href="https://discord.gg/qv934WsH" className="text-[#0095ff] hover:underline">
+                      <Link
+                        href="https://discord.gg/qv934WsH"
+                        className="text-[#0095ff] hover:underline"
+                      >
                         Discord
                       </Link>
                     </div>
@@ -971,7 +1172,10 @@ export default function LightpaperPage() {
                     <p className="text-muted-foreground">
                       Have questions or partnership inquiries? Reach out to our team directly.
                     </p>
-                    <Link href="mailto:contact@getmovin.ai" className="text-[#0095ff] hover:underline">
+                    <Link
+                      href="mailto:contact@getmovin.ai"
+                      className="text-[#0095ff] hover:underline"
+                    >
                       contact@getmovin.ai
                     </Link>
                   </div>
@@ -1027,5 +1231,5 @@ export default function LightpaperPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
