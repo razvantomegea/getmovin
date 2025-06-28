@@ -1,7 +1,12 @@
-import type { Metadata } from 'next'
-import './globals.css'
-import { Analytics } from "@vercel/analytics/next"
-import TermlyCMP from './components/TermlyCMP'
+import type { Metadata } from 'next';
+import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
+import TermlyCMP from './components/TermlyCMP';
+import { Toaster } from '@/components/ui/toaster';
+
+export const viewport = {
+  themeColor: '#ffffff',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://getmovin.ai'),
@@ -9,7 +14,8 @@ export const metadata: Metadata = {
     default: 'Movin - Your effort counts',
     template: `%s | Movin`,
   },
-  description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
+  description:
+    'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
   keywords: [
     'fitness',
     'calorie tracking',
@@ -24,11 +30,12 @@ export const metadata: Metadata = {
     'exercise',
     'Base blockchain',
     'getmovin',
-    'Movin app'
+    'Movin app',
   ],
   openGraph: {
     title: 'Movin - Your effort counts',
-    description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
+    description:
+      'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
     url: 'https://getmovin.ai',
     siteName: 'Movin',
     images: [
@@ -45,7 +52,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Movin - Your effort counts',
-    description: 'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
+    description:
+      'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
     images: ['https://getmovin.ai/images/splash-dark.png'],
   },
   robots: {
@@ -65,9 +73,7 @@ export const metadata: Metadata = {
       { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
-    apple: [
-      { url: '/favicon/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/favicon/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' }],
     other: [
       {
         rel: 'manifest',
@@ -80,24 +86,26 @@ export const metadata: Metadata = {
       },
     ],
   },
-  themeColor: '#ffffff',
   other: {
     'msapplication-TileColor': '#0095ff',
     'google-adsense-account': 'ca-pub-2046001366406434',
-  }
-}
+  },
+};
 
-const WEBSITE_UUID = '40d3e98e-5ac6-4a84-a24e-ac4cda0fa623'
+const WEBSITE_UUID = '40d3e98e-5ac6-4a84-a24e-ac4cda0fa623';
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <head>
-        <meta name="subject" content="Fitness, Calorie Tracking, Weight Loss, Rewards, Move to Earn" />
+        <meta
+          name="subject"
+          content="Fitness, Calorie Tracking, Weight Loss, Rewards, Move to Earn"
+        />
         <meta name="topic" content="Fitness and Rewards App" />
         <meta name="rating" content="General" />
         <meta name="HandheldFriendly" content="True" />
@@ -106,32 +114,37 @@ export default function RootLayout({
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "url": "https://getmovin.ai/",
-            "name": "Movin",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://getmovin.ai/",
-              "query-input": "required name=search_term_string"
-            }
-          })}}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              url: 'https://getmovin.ai/',
+              name: 'Movin',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://getmovin.ai/',
+                'query-input': 'required name=search_term_string',
+              },
+            }),
+          }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Movin",
-            "url": "https://getmovin.ai/",
-            "logo": "https://getmovin.ai/images/logo.png"
-          })}}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Movin',
+              url: 'https://getmovin.ai/',
+              logo: 'https://getmovin.ai/images/logo.png',
+            }),
+          }}
         />
         {children}
+        <Toaster />
       </body>
       <Analytics />
       <TermlyCMP websiteUUID={WEBSITE_UUID} />
     </html>
-  )
+  );
 }
