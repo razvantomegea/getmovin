@@ -73,7 +73,7 @@ export async function generateMetadata({
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://getmovin.ai/blog/${post.slug}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://getmovin.ai'}/blog/${post.slug}`,
       siteName: 'Movin Blog',
       images: post.coverImage
         ? [
@@ -96,7 +96,7 @@ export async function generateMetadata({
       images: post.coverImage ? [post.coverImage] : [],
     },
     alternates: {
-      canonical: `https://getmovin.ai/blog/${post.slug}`,
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://getmovin.ai'}/blog/${post.slug}`,
     },
   };
 }
@@ -108,6 +108,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   if (!post) {
     notFound();
   }
+
+  const articleUrl = `${process.env.NEXT_PUBLIC_BASE_URL || (typeof window !== 'undefined' ? window.location.origin : '')}/blog/${post.slug}`;
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -206,6 +208,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               <ShareButton
                 title={post.title}
                 description={post.description}
+                url={articleUrl}
                 hashtags={post.tags}
                 variant="outline"
                 size="sm"
@@ -310,7 +313,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             dateModified: post.publishedAt,
             mainEntityOfPage: {
               '@type': 'WebPage',
-              '@id': `https://getmovin.ai/blog/${post.slug}`,
+              '@id': articleUrl,
             },
           }),
         }}
