@@ -611,16 +611,16 @@ export default function LightpaperPage() {
                   <h3 className="text-xl font-bold">Reward System</h3>
                   <div className="space-y-2 text-muted-foreground md:text-lg">
                     <p>
-                      <span className="font-semibold">Step Rewards:</span> 1 MVN token per 10,000
+                      <span className="font-semibold">Step Rewards:</span> 1 MVN token per 1,000
                       steps at launch. Any positive steps are rewarded, up to a daily cap of 30,000
                       steps. Per-minute (300 steps/min) and daily caps remain enforced. Rewards
                       rates decrease by 0.1% daily, compounded.
                     </p>
                     <p>
                       <span className="font-semibold">MET Rewards:</span> Earn MVN tokens from
-                      metabolic activity. Any positive METs are rewarded, up to a daily cap of 500
-                      METs. Per-minute (5 METs/min) and daily caps remain enforced. Rewards rates
-                      decrease by 0.1% daily, compounded.
+                      metabolic activity. Any positive METs are rewarded by 1 MVN token per 5 METs,
+                      up to a daily cap of 500 METs. Per-minute (5 METs/min) and daily caps remain
+                      enforced. Rewards rates decrease by 0.1% daily, compounded.
                     </p>
                     <p>
                       <span className="font-semibold">Reward Rate Decrease:</span> Base reward rates
@@ -823,30 +823,6 @@ export default function LightpaperPage() {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr className="border-b">
-                          <td className="py-2">STEPS_THRESHOLD</td>
-                          <td className="py-2">N/A</td>
-                          <td className="py-2">No minimum steps required for rewards</td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2">PREMIUM_STEPS_THRESHOLD</td>
-                          <td className="py-2">N/A</td>
-                          <td className="py-2">
-                            No minimum steps required for rewards (premium users)
-                          </td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2">METS_THRESHOLD</td>
-                          <td className="py-2">N/A</td>
-                          <td className="py-2">No minimum METs required for rewards</td>
-                        </tr>
-                        <tr className="border-b">
-                          <td className="py-2">PREMIUM_METS_THRESHOLD</td>
-                          <td className="py-2">N/A</td>
-                          <td className="py-2">
-                            No minimum METs required for rewards (premium users)
-                          </td>
-                        </tr>
                         <tr className="border-b">
                           <td className="py-2">MAX_DAILY_STEPS</td>
                           <td className="py-2">30,000</td>
@@ -1139,7 +1115,7 @@ export default function LightpaperPage() {
                     </p>
                     <Button
                       onClick={() =>
-                        window.open('https://app.uniswap.org/positions/v4/base/40814', '_blank')
+                        window.open('https://app.uniswap.org/positions/v4/base/69532', '_blank')
                       }
                       className="bg-[#0095ff] hover:bg-[#0080e0]"
                     >
