@@ -91,4 +91,16 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Prevent horizontal overflow while allowing vertical scrolling */
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    touch-action: pan-y pinch-zoom;
+  }
+  
+  /* Ensure mobile scrolling works properly */
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
 }
