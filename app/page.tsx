@@ -561,7 +561,7 @@ export default function LandingPage() {
                   </li>
                   <li className="flex items-start gap-2 text-muted-foreground">
                     <FontAwesomeIcon
-                      icon={faTimes}
+                      icon={faCheck}
                       className="h-5 w-5 text-muted-foreground shrink-0 mt-0.5"
                     />
                     <span>Contains ads</span>
