@@ -373,7 +373,7 @@ export default function LandingPage() {
                 {
                   title: 'Move & Track',
                   description:
-                    "Our app tracks your steps and METs using your phone's sensors and importing workouts from your fitness tracker. Any positive steps or METs are rewarded, up to the daily cap.",
+                    "Our app tracks your steps and METs using your phone's sensors and importing workouts from your fitness tracker. Any positive steps or METs are rewarded, up to the daily cap. Premium users also earn nutrition score rewards for meal tracking with photo proof and validation.",
                   icon: <FontAwesomeIcon icon={faRunning} className="h-8 w-8 text-[#0095ff]" />,
                 },
                 {
@@ -662,7 +662,28 @@ export default function LandingPage() {
                       icon={faCheck}
                       className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
                     />
-                    <span>AI based calorie tracking (soon)</span>
+                    <span>Nutrition score rewards for meal tracking with photo proof</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
+                    <span>AI-powered meal & workout planners (Q4 2025)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
+                    <span>Meal tracking with natural language & camera AI (Q3 2025)</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                    />
+                    <span>Workout tracking with progress (Q3 2025)</span>
                   </li>
                 </ul>
                 <Link href="https://app.getmovin.ai">
