@@ -15,10 +15,13 @@ export const metadata: Metadata = {
     template: `%s | Movin`,
   },
   description:
-    'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
+    'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, nutrition, and weight loss progress while earning rewards for staying active.',
   keywords: [
     'fitness',
     'calorie tracking',
+    'nutrition tracking',
+    'meal tracking',
+    'workout tracking',
     'weight loss',
     'move to earn',
     'rewards',
@@ -31,11 +34,13 @@ export const metadata: Metadata = {
     'Base blockchain',
     'getmovin',
     'Movin app',
+    'AI meal planner',
+    'AI workout planner',
   ],
   openGraph: {
     title: 'Movin - Your effort counts',
     description:
-      'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
+      'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, nutrition, and weight loss progress while earning rewards for staying active.',
     url: 'https://getmovin.ai',
     siteName: 'Movin',
     images: [
@@ -53,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Movin - Your effort counts',
     description:
-      'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, and weight loss progress while earning rewards for staying active.',
+      'Transform your daily movement into rewards. Our move-to-earn app built on Base rewards you with crypto tokens for every step you take. Track your fitness, calories, nutrition, and weight loss progress while earning rewards for staying active.',
     images: ['https://getmovin.ai/images/splash-dark.png'],
   },
   robots: {
@@ -104,7 +109,7 @@ export default function RootLayout({
       <head>
         <meta
           name="subject"
-          content="Fitness, Calorie Tracking, Weight Loss, Rewards, Move to Earn"
+          content="Fitness, Calorie Tracking, Nutrition Tracking, Weight Loss, Rewards, Move to Earn"
         />
         <meta name="topic" content="Fitness and Rewards App" />
         <meta name="rating" content="General" />

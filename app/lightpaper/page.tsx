@@ -333,7 +333,7 @@ export default function LightpaperPage() {
                       Premium users can track METs (Metabolic Equivalent of Task) with any positive
                       METs rewarded, up to a maximum of 500 METs daily, rate limited to 5 METs per
                       minute, for additional rewards. Premium users also benefit from a higher daily
-                      METs cap.
+                      METs cap and can earn nutrition score rewards for meal tracking when photo proof is provided and validation passes.
                     </p>
                   </div>
                   <div className="space-y-4 rounded-lg border p-4 shadow-sm">
@@ -386,7 +386,14 @@ export default function LightpaperPage() {
                         icon={faChevronRight}
                         className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
                       />
-                      <span>AI based calorie tracking</span>
+                      <span>Nutrition score rewards for meal tracking with photo validation</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <FontAwesomeIcon
+                        icon={faChevronRight}
+                        className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                      />
+                      <span>AI-powered meal and workout planners</span>
                     </li>
                   </ul>
                 </div>
@@ -552,7 +559,28 @@ export default function LightpaperPage() {
                           icon={faChevronRight}
                           className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
                         />
-                        <span>AI based calorie tracking (soon)</span>
+                        <span>Nutrition score rewards for meal tracking with photo proof</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
+                        <span>Meal tracking with natural language & camera AI (Q3 2025)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
+                        <span>Workout tracking with progress monitoring (Q3 2025)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="h-5 w-5 text-[#0095ff] shrink-0 mt-0.5"
+                        />
+                        <span>AI-powered meal & workout planners (Q4 2025)</span>
                       </li>
                     </ul>
                   </div>
@@ -886,12 +914,23 @@ export default function LightpaperPage() {
                   </ul>
                 </div>
                 <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
-                  <h3 className="text-xl font-bold">Q3-Q4 2025: Social Feed Features</h3>
+                  <h3 className="text-xl font-bold">Q3 2025: Enhanced Tracking Features</h3>
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>✓ Location and route tracking with interactive maps</li>
                     <li>✓ Achievement badges and milestone rewards</li>
-                    <li>✓ AI based calorie tracking</li>
+                    <li>Meal tracking with human natural language processing</li>
+                    <li>Device camera integration with AI for meal recognition</li>
+                    <li>Workout tracking with detailed progress monitoring</li>
+                    <li>Nutrition score rewards for validated meal photos</li>
                     <li>App launch on Apple Store and Google Play</li>
+                  </ul>
+                </div>
+                <div className="relative before:absolute before:left-[-29px] before:top-2 before:h-4 before:w-4 before:rounded-full before:bg-[#0095ff]">
+                  <h3 className="text-xl font-bold">Q4 2025: AI-Powered Planning</h3>
+                  <ul className="mt-2 space-y-1 text-muted-foreground">
+                    <li>AI-powered meal planner with personalized recommendations</li>
+                    <li>AI-powered workout planner with custom routines</li>
+                    <li>Advanced nutrition analysis and insights</li>
                     <li>Public token listing on Uniswap, Gate.io, and Base</li>
                   </ul>
                 </div>
