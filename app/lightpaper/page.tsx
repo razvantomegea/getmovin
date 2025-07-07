@@ -918,10 +918,10 @@ export default function LightpaperPage() {
                   <ul className="mt-2 space-y-1 text-muted-foreground">
                     <li>✓ Location and route tracking with interactive maps</li>
                     <li>✓ Achievement badges and milestone rewards</li>
-                    <li>Meal tracking with human natural language processing</li>
-                    <li>Device camera integration with AI for meal recognition</li>
-                    <li>Workout tracking with detailed progress monitoring</li>
-                    <li>Nutrition score rewards for validated meal photos</li>
+                    <li>✓ Meal tracking with human natural language processing</li>
+                    <li>✓ Device camera integration with AI for meal recognition</li>
+                    <li>✓ Workout tracking with detailed progress monitoring</li>
+                    <li>✓ Nutrition score rewards for validated meal photos</li>
                     <li>App launch on Apple Store and Google Play</li>
                   </ul>
                 </div>
