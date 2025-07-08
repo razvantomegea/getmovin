@@ -18,6 +18,7 @@ import {
   faChevronRight,
   faBars,
   faXmark,
+  faBolt,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from '@/components/ui/button';
@@ -237,7 +238,7 @@ export default function LandingPage() {
                   }}
                   className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]"
                 >
-                  Web3 Fitness Revolution
+                  Track your lifestyle in less than 1 minute
                 </motion.div>
                 <div className="space-y-2">
                   <motion.h1
@@ -251,7 +252,7 @@ export default function LandingPage() {
                       animate={{ opacity: 1 }}
                       transition={{ delay: 1.0, duration: 0.8 }}
                     >
-                      Your effort counts
+                      Movin – Your Effort Counts
                     </motion.span>
                   </motion.h1>
                   <motion.p
@@ -260,8 +261,8 @@ export default function LandingPage() {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.9, type: 'spring', stiffness: 100, damping: 20 }}
                   >
-                    Transform your daily movement into rewards. Our move-to-earn app built on Base
-                    rewards you with crypto tokens for every step you take.
+                    Track your meals, workouts, and activities in a blink of an eye, while earning
+                    MVN tokens for every healthy habit achievement, everything powered by AI.
                   </motion.p>
                 </div>
                 <motion.div
@@ -358,34 +359,37 @@ export default function LandingPage() {
             >
               <div className="space-y-2">
                 <div className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]">
-                  Features
+                  AI-Powered Quick Tracking
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-                  How Movin Works
+                  Track Everything in Under 1 Minute
                 </h2>
                 <p className="mx-auto max-w-[1100px] text-muted-foreground md:text-xl/relaxed">
-                  Our blockchain-powered fitness app rewards your movement with real cryptocurrency
+                  Log meals, workouts, and steps in less than 60 seconds. Tap once to record your
+                  workout or steps—activity tracking takes less than a minute. Earn 1 MVN per 1,000
+                  steps; stake tokens up to 24 months for 24% APY. Referral bonuses, social sharing
+                  and more.
                 </p>
               </div>
             </motion.div>
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3">
               {[
                 {
-                  title: 'Move & Track',
+                  title: 'AI Meal & Workout Tracking',
                   description:
-                    "Our app tracks your steps and METs using your phone's sensors and importing workouts from your fitness tracker. Any positive steps or METs are rewarded, up to the daily cap. Premium users also earn nutrition score rewards for meal tracking with photo proof and validation.",
+                    'Our AI meal tracker logs your meals in < 1 minute—just snap a photo or enter a quick text description. Auto-generate personalized meal & workout plans.',
                   icon: <FontAwesomeIcon icon={faRunning} className="h-8 w-8 text-[#0095ff]" />,
                 },
                 {
-                  title: 'Earn Tokens',
+                  title: 'Rewards & Staking',
                   description:
-                    'Convert your physical activity into MVN tokens on the Base Layer-2 chain of Ethereum and stake your tokens to earn even more',
+                    'Earn MVN tokens for your steps, METs and nutrition score. Stake tokens up to 24 months for 24% APY. Refer and earn.',
                   icon: <FontAwesomeIcon icon={faCoins} className="h-8 w-8 text-[#0095ff]" />,
                 },
                 {
-                  title: 'Share & Compete',
+                  title: 'Sharing and Competing',
                   description:
-                    'Share your progress with friends, compete, and join a team with a partner to earn even more tokens. Both you and your referrals get 1 MVN when they join.',
+                    'Share your progress with friends, compete, and join a team with a partner to earn even more tokens.',
                   icon: (
                     <FontAwesomeIcon icon={faUsersRectangle} className="h-8 w-8 text-[#0095ff]" />
                   ),
