@@ -10,11 +10,11 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Movin – Your Effort Counts | Track Your Lifestyle in < 1 Minute',
+    default: 'Movin – Your Effort Counts | Track Your Lifestyle in under 1 minute',
     template: '%s | Movin',
   },
   description:
-    'Transform every step, meal, and workout into crypto rewards—now in under 1 minute. Movin uses AI to track your meals, activities, and generate personalized meal & workout plans in less than 60 seconds. Start earning MVN tokens for your healthy habits today!',
+    'Transform every step, meal, and workout into crypto rewards—now in under 1 minute. Movin uses AI to track your meals, activities, and generate personalized meal & workout plans in under 1 minute. Start earning MVN tokens for your healthy habits today!',
   keywords: [
     'getmovinai',
     'movin app',
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     'getmovinchallenge',
   ],
   openGraph: {
-    title: 'Movin – Your Effort Counts | Track Your Lifestyle in < 1 Minute',
+    title: 'Movin – Your Effort Counts | Track Your Lifestyle in under 1 minute',
     description:
-      'AI-powered quick tracking: meals, workouts, and lifestyle in under 60 seconds—earn crypto rewards with Movin.',
+      'AI-powered quick tracking: meals, workouts, and lifestyle in under 1 minute—earn crypto rewards with Movin.',
     url: 'https://getmovin.ai',
     siteName: 'Movin',
     images: [
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Movin – Your Effort Counts | Track Your Lifestyle in < 1 Minute',
+    title: 'Movin – Your Effort Counts | Track Your Lifestyle in under 1 minute',
     description:
-      'Log meals, workouts, and activities in under 60 seconds with AI—earn MVN crypto rewards for your healthy habits.',
+      'Log meals, workouts, and activities in under 1 minute with AI—earn MVN crypto rewards for your healthy habits.',
     images: ['https://getmovin.ai/images/splash-dark.png'],
   },
   robots: {

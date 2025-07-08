@@ -10,15 +10,11 @@ import {
   faRunning,
   faCoins,
   faUsersRectangle,
-  faStar,
-  faCheck,
-  faTimes,
-  faDownload,
   faArrowRight,
   faChevronRight,
   faBars,
   faXmark,
-  faBolt,
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { Button } from '@/components/ui/button';
@@ -238,7 +234,7 @@ export default function LandingPage() {
                   }}
                   className="inline-block rounded-lg bg-[#e6f4ff] px-3 py-1 text-sm text-[#0095ff] dark:bg-[#0095ff]/10 dark:text-[#0095ff]"
                 >
-                  Track your lifestyle in less than 1 minute
+                  Track your lifestyle in under 1 minute
                 </motion.div>
                 <div className="space-y-2">
                   <motion.h1
@@ -362,13 +358,12 @@ export default function LandingPage() {
                   AI-Powered Quick Tracking
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-                  Track Everything in Under 1 Minute
+                  Track Everything in under 1 minute
                 </h2>
                 <p className="mx-auto max-w-[1100px] text-muted-foreground md:text-xl/relaxed">
-                  Log meals, workouts, and steps in less than 60 seconds. Tap once to record your
-                  workout or steps—activity tracking takes less than a minute. Earn 1 MVN per 1,000
-                  steps; stake tokens up to 24 months for 24% APY. Referral bonuses, social sharing
-                  and more.
+                  Log meals, workouts, and steps in under 1 minute. Tap once to record your workout
+                  or steps—activity tracking takes under 1 minute. Earn 1 MVN per 1,000 steps; stake
+                  tokens up to 24 months for 24% APY. Referral bonuses, social sharing and more.
                 </p>
               </div>
             </motion.div>
@@ -377,7 +372,7 @@ export default function LandingPage() {
                 {
                   title: 'AI Meal & Workout Tracking',
                   description:
-                    'Our AI meal tracker logs your meals in < 1 minute—just snap a photo or enter a quick text description. Auto-generate personalized meal & workout plans.',
+                    'Our AI meal tracker logs your meals in under 1 minute—just snap a photo or enter a quick text description. Auto-generate personalized meal & workout plans.',
                   icon: <FontAwesomeIcon icon={faRunning} className="h-8 w-8 text-[#0095ff]" />,
                 },
                 {
